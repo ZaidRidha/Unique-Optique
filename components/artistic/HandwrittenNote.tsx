@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -19,11 +19,14 @@ export const HandwrittenNote: React.FC<HandwrittenNoteProps> = ({
   color = "var(--color-gold)",
   arrow = false,
 }) => {
+  // Generate stable random rotation using useMemo to avoid hydration mismatches
+  const rotation = useMemo(() => Math.random() * 4 - 2, []);
+
   return (
     <motion.div
       className={cn("relative inline-block", className)}
       initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-      animate={{ opacity: 1, scale: 1, rotate: Math.random() * 4 - 2 }}
+      animate={{ opacity: 1, scale: 1, rotate: rotation }}
       transition={{ duration: 0.5 }}
     >
       <div className="relative bg-[var(--color-offwhite)] p-6 shadow-lg">

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Celebrity } from "@/lib/constants";
@@ -18,7 +18,9 @@ export const CelebrityPolaroid: React.FC<CelebrityPolaroidProps> = ({
   index = 0,
   className,
 }) => {
-  const rotation = Math.random() * 6 - 3;
+  // Generate stable random values using useMemo to avoid hydration mismatches
+  const rotation = useMemo(() => Math.random() * 6 - 3, [celebrity.id]);
+  const showStar = useMemo(() => Math.random() > 0.5, [celebrity.id]);
 
   return (
     <motion.div
@@ -73,7 +75,7 @@ export const CelebrityPolaroid: React.FC<CelebrityPolaroidProps> = ({
         />
 
         {/* Gold Star Sticker (sometimes) */}
-        {Math.random() > 0.5 && (
+        {showStar && (
           <div className="absolute bottom-2 right-2 w-8 h-8 bg-[var(--color-gold)] rounded-full flex items-center justify-center rotate-12 shadow-lg">
             <span className="text-black text-xl">★</span>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { paintDrip } from "@/lib/animations";
@@ -16,6 +16,12 @@ export const PaintDrip: React.FC<PaintDripProps> = ({
   color = "var(--color-gold)",
   count = 3,
 }) => {
+  // Generate stable random heights using useMemo to avoid hydration mismatches
+  const heights = useMemo(
+    () => Array.from({ length: count }, () => 30 + Math.random() * 40),
+    [count]
+  );
+
   return (
     <div className={cn("absolute top-0 left-0 w-full pointer-events-none", className)}>
       <svg
@@ -25,7 +31,7 @@ export const PaintDrip: React.FC<PaintDripProps> = ({
       >
         {Array.from({ length: count }).map((_, index) => {
           const x = (index + 1) * (100 / (count + 1));
-          const height = 30 + Math.random() * 40;
+          const height = heights[index];
 
           return (
             <motion.g key={index}>

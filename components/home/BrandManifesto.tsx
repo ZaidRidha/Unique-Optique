@@ -9,7 +9,7 @@ import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
 
 export const BrandManifesto: React.FC = () => {
   return (
-    <section className="relative py-24 px-4 overflow-hidden">
+    <section className="relative py-24 overflow-hidden w-full flex justify-center">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-[var(--color-concrete)]/5 to-black" />
 
@@ -18,7 +18,7 @@ export const BrandManifesto: React.FC = () => {
         color="var(--color-electric-blue)"
       />
 
-      <div className="container mx-auto max-w-6xl relative z-10">
+      <div className="w-full max-w-6xl px-4 relative z-10">
         <motion.div
           variants={staggerContainer}
           initial="initial"

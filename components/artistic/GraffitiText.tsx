@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -33,13 +33,19 @@ export const GraffitiText: React.FC<GraffitiTextProps> = ({
 
   const letters = children.split("");
 
+  // Generate stable random rotations using useMemo to avoid hydration mismatches
+  const randomRotations = useMemo(
+    () => letters.map(() => Math.random() * 20 - 10),
+    [children]
+  );
+
   if (animate) {
     return (
-      <div className={cn("font-street uppercase tracking-[0.1em]", className)}>
+      <div className={cn("font-street uppercase tracking-[0.1em] text-center w-full", className)}>
         {letters.map((letter, index) => (
           <motion.span
             key={index}
-            initial={{ opacity: 0, y: 50, rotate: Math.random() * 20 - 10 }}
+            initial={{ opacity: 0, y: 50, rotate: randomRotations[index] }}
             animate={{ opacity: 1, y: 0, rotate: 0 }}
             transition={{
               duration: 0.8,
@@ -62,7 +68,7 @@ export const GraffitiText: React.FC<GraffitiTextProps> = ({
   return (
     <div
       className={cn(
-        "font-street uppercase tracking-[0.1em]",
+        "font-street uppercase tracking-[0.1em] text-center w-full",
         colors[variant],
         shadowColors[variant],
         className

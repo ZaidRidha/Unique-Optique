@@ -90,18 +90,22 @@ export const staggerItem: Variants = {
 };
 
 // Chaotic Entrance (for high-energy sections)
+// Note: Random values removed to prevent hydration mismatches
+// Components should use useMemo to generate stable random values if needed
 export const chaoticEntrance: Variants = {
   initial: {
     opacity: 0,
-    rotate: Math.random() * 20 - 10,
-    x: Math.random() * 100 - 50,
-    y: Math.random() * 100 - 50,
+    rotate: 0,
+    x: 0,
+    y: 0,
+    scale: 0.8,
   },
   animate: {
     opacity: 1,
     rotate: 0,
     x: 0,
     y: 0,
+    scale: 1,
     transition: {
       duration: 0.8,
       ease: [0.6, 0.05, 0.01, 0.9],
@@ -110,15 +114,15 @@ export const chaoticEntrance: Variants = {
 };
 
 // Polaroid Shuffle (for celebrity wall)
+// Note: Random rotation values removed to prevent hydration mismatches
+// Components using this variant should manage rotation via style prop with useMemo
 export const polaroidShuffle: Variants = {
   initial: {
     opacity: 0,
-    rotate: Math.random() * 15 - 7.5,
     scale: 0.8,
   },
   animate: (index: number) => ({
     opacity: 1,
-    rotate: Math.random() * 6 - 3,
     scale: 1,
     transition: {
       delay: index * 0.05,

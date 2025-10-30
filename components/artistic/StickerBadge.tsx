@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -15,8 +15,14 @@ export const StickerBadge: React.FC<StickerBadgeProps> = ({
   children,
   className,
   variant = "circle",
-  rotate = Math.random() * 6 - 3,
+  rotate,
 }) => {
+  // Generate stable random rotation using useMemo to avoid hydration mismatches
+  const finalRotation = useMemo(
+    () => rotate ?? Math.random() * 6 - 3,
+    [rotate]
+  );
+
   const shapes = {
     star: (
       <path
@@ -37,7 +43,7 @@ export const StickerBadge: React.FC<StickerBadgeProps> = ({
   return (
     <motion.div
       className={cn("relative inline-block", className)}
-      style={{ rotate }}
+      style={{ rotate: finalRotation }}
       whileHover={{ scale: 1.05, rotate: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
