@@ -55,7 +55,7 @@ export const Header: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center gap-8">
               <NavLink href="/collections">Collections</NavLink>
               <NavLink href="/celebrities">Celebrities</NavLink>
               <NavLink href="/lookbook">Lookbook</NavLink>
@@ -64,27 +64,46 @@ export const Header: React.FC = () => {
             </nav>
 
             {/* Right Side Actions */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center gap-6">
               {/* Phone */}
-              <a
+              <motion.a
                 href={`tel:${BRAND_INFO.phone}`}
-                className="hidden md:flex items-center space-x-2 text-[var(--color-gold)] hover:text-[var(--color-gold-light)] transition-colors"
+                className="hidden md:flex items-center gap-3 px-6 py-3 border-2 border-[var(--color-gold)]/30 rounded-lg text-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:border-[var(--color-gold)] transition-all group relative overflow-hidden"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <Phone className="w-4 h-4" />
-                <span className="text-sm font-grotesk">{BRAND_INFO.phone}</span>
-              </a>
+                <motion.div
+                  className="absolute inset-0 bg-[var(--color-gold)]/10"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <Phone className="w-5 h-5 relative z-10" />
+                <span className="text-base font-grotesk relative z-10">{BRAND_INFO.phone}</span>
+              </motion.a>
 
               {/* Cart */}
               <Link href="/cart">
                 <motion.button
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
                   whileTap={{ scale: 0.95 }}
-                  className="relative p-2 text-foreground hover:text-[var(--color-gold)] transition-colors"
+                  className="relative p-4 border-2 border-[var(--color-electric-blue)]/30 rounded-lg text-foreground hover:text-[var(--color-electric-blue)] hover:border-[var(--color-electric-blue)] transition-all group"
+                  transition={{ duration: 0.3 }}
                 >
-                  <ShoppingCart className="w-6 h-6" />
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-[var(--color-neon-pink)] text-black text-xs font-bold rounded-full flex items-center justify-center">
+                  <motion.div
+                    className="absolute inset-0 bg-[var(--color-electric-blue)]/5 rounded-lg"
+                    initial={{ scale: 0 }}
+                    whileHover={{ scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <ShoppingCart className="w-6 h-6 relative z-10" />
+                  <motion.span
+                    className="absolute -top-1 -right-1 w-6 h-6 bg-[var(--color-neon-pink)] text-black text-xs font-bold rounded-full flex items-center justify-center shadow-lg ring-2 ring-black"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                  >
                     0
-                  </span>
+                  </motion.span>
                 </motion.button>
               </Link>
 
@@ -93,9 +112,15 @@ export const Header: React.FC = () => {
                 onClick={() => setIsMenuOpen(true)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-2 text-foreground hover:text-[var(--color-gold)] transition-colors lg:hidden"
+                className="p-4 border-2 border-[var(--color-neon-pink)]/30 rounded-lg text-foreground hover:text-[var(--color-neon-pink)] hover:border-[var(--color-neon-pink)] transition-all lg:hidden group relative overflow-hidden"
               >
-                <Menu className="w-6 h-6" />
+                <motion.div
+                  className="absolute inset-0 bg-[var(--color-neon-pink)]/10"
+                  initial={{ scale: 0, rotate: 0 }}
+                  whileHover={{ scale: 1.5, rotate: 180 }}
+                  transition={{ duration: 0.4 }}
+                />
+                <Menu className="w-6 h-6 relative z-10" />
               </motion.button>
             </div>
           </div>
@@ -114,15 +139,27 @@ const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({
 }) => {
   return (
     <Link href={href} className="relative group">
-      <span className="text-foreground font-grotesk text-sm uppercase tracking-wider group-hover:text-[var(--color-gold)] transition-colors">
+      <motion.span
+        className="text-foreground font-street text-lg uppercase tracking-wider group-hover:text-[var(--color-gold)] transition-colors relative inline-block px-4 py-2"
+        whileHover={{ y: -3, scale: 1.05 }}
+        transition={{ duration: 0.2 }}
+      >
         {children}
-      </span>
-      <motion.div
-        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--color-neon-pink)]"
-        initial={{ scaleX: 0 }}
-        whileHover={{ scaleX: 1 }}
-        transition={{ duration: 0.3 }}
-      />
+        {/* Animated underline */}
+        <motion.div
+          className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-neon-pink)] via-[var(--color-electric-blue)] to-[var(--color-gold)]"
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileHover={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        />
+        {/* Glow effect on hover */}
+        <motion.div
+          className="absolute inset-0 blur-lg bg-[var(--color-gold)]/30 -z-10 rounded-lg"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileHover={{ opacity: 1, scale: 1.3 }}
+          transition={{ duration: 0.3 }}
+        />
+      </motion.span>
     </Link>
   );
 };

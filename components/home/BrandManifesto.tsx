@@ -9,7 +9,7 @@ import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
 
 export const BrandManifesto: React.FC = () => {
   return (
-    <section className="relative py-32 overflow-hidden w-full flex justify-center">
+    <section className="relative py-32 overflow-hidden w-full flex justify-center" style={{ marginTop: '100px' }}>
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-[var(--color-concrete)]/5 to-black" />
 
