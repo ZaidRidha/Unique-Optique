@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useMemo } from "react";
+import React, { useEffect, useRef, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { cn, seededRandom } from "@/lib/utils";
 
@@ -17,6 +17,11 @@ export const GraffitiText: React.FC<GraffitiTextProps> = ({
   variant = "gold",
   animate = true,
 }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const colors = {
     gold: "text-[var(--color-gold)]",
     "neon-pink": "text-[var(--color-neon-pink)]",
@@ -42,7 +47,7 @@ export const GraffitiText: React.FC<GraffitiTextProps> = ({
     [children]
   );
 
-  if (animate) {
+  if (animate && mounted) {
     return (
       <div className={cn("font-street uppercase tracking-[0.1em] text-center w-full", className)}>
         {letters.map((letter, index) => (

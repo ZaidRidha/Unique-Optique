@@ -56,6 +56,7 @@ export function seededRandom(seed: string): number {
     hash = ((hash << 5) - hash) + char;
     hash = hash & hash; // Convert to 32-bit integer
   }
-  // Normalize to 0-1 range
-  return Math.abs(Math.sin(hash)) % 1;
+  // Use a simple modulo approach instead of Math.sin for consistency
+  const x = Math.abs(hash);
+  return (x % 10000) / 10000;
 }
