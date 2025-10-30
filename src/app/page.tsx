@@ -21,8 +21,8 @@ export default function Home() {
       <BrandManifesto />
 
       {/* Featured Collections */}
-      <section className="py-24 px-4 bg-gradient-to-b from-black to-[var(--color-concrete)]/10">
-        <div className="container mx-auto max-w-7xl">
+      <section className="py-24 px-4 bg-gradient-to-b from-black to-[var(--color-concrete)]/10 flex justify-center">
+        <div className="w-full max-w-7xl">
           <div className="text-center mb-16">
             <GraffitiText
               variant="electric-blue"
@@ -50,10 +50,10 @@ export default function Home() {
       </section>
 
       {/* Celebrity Wall Preview */}
-      <section className="py-24 px-4 relative overflow-hidden">
+      <section className="py-24 px-4 relative overflow-hidden flex justify-center">
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-concrete)]/10 to-black" />
 
-        <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="w-full max-w-7xl relative z-10">
           <div className="text-center mb-16">
             <GraffitiText
               variant="neon-pink"
@@ -95,8 +95,8 @@ export default function Home() {
       </section>
 
       {/* Visit Us CTA */}
-      <section className="py-24 px-4 bg-gradient-to-r from-black via-[var(--color-gold)]/10 to-black border-y-2 border-[var(--color-gold)]">
-        <div className="container mx-auto max-w-4xl text-center">
+      <section className="py-24 px-4 bg-gradient-to-r from-black via-[var(--color-gold)]/10 to-black border-y-2 border-[var(--color-gold)] flex justify-center">
+        <div className="w-full max-w-4xl text-center">
           <GraffitiText
             variant="gold"
             className="text-4xl md:text-6xl mb-8"
