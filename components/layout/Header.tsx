@@ -35,27 +35,29 @@ export const Header: React.FC = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2 group">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="relative"
-              >
-                <h1 className="font-display text-2xl md:text-3xl text-[var(--color-gold)] italic">
-                  unique optique
-                </h1>
+          <div className="grid grid-cols-3 items-center h-20 gap-4">
+            {/* Logo - Left */}
+            <div className="flex justify-start">
+              <Link href="/" className="flex items-center space-x-2 group">
                 <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--color-neon-pink)]"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.div>
-            </Link>
+                  whileHover={{ scale: 1.05 }}
+                  className="relative"
+                >
+                  <h1 className="font-display text-2xl md:text-3xl text-[var(--color-gold)] italic">
+                    unique optique
+                  </h1>
+                  <motion.div
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--color-neon-pink)]"
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.div>
+              </Link>
+            </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
+            {/* Desktop Navigation - Center */}
+            <nav className="hidden lg:flex items-center justify-center gap-8">
               <NavLink href="/collections">Collections</NavLink>
               <NavLink href="/celebrities">Celebrities</NavLink>
               <NavLink href="/lookbook">Lookbook</NavLink>
@@ -63,12 +65,12 @@ export const Header: React.FC = () => {
               <NavLink href="/visit">Visit</NavLink>
             </nav>
 
-            {/* Right Side Actions */}
-            <div className="flex items-center gap-6">
+            {/* Right Side Actions - Right */}
+            <div className="flex items-center justify-end gap-6">
               {/* Phone */}
               <motion.a
                 href={`tel:${BRAND_INFO.phone}`}
-                className="hidden md:flex items-center gap-3 px-6 py-3 border-2 border-[var(--color-gold)]/30 rounded-lg text-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:border-[var(--color-gold)] transition-all group relative overflow-hidden"
+                className="hidden md:flex items-center gap-3 px-8 py-4 border-2 border-[var(--color-gold)]/30 rounded-lg text-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:border-[var(--color-gold)] transition-all group relative overflow-hidden"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -83,28 +85,26 @@ export const Header: React.FC = () => {
               </motion.a>
 
               {/* Cart */}
-              <div className="relative mr-6">
-                <Link href="/cart">
-                  <motion.button
-                    whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative px-6 py-3 border-2 border-[var(--color-electric-blue)]/30 rounded-lg text-foreground hover:text-[var(--color-electric-blue)] hover:border-[var(--color-electric-blue)] transition-all group"
+              <Link href="/cart" className="flex items-center gap-2">
+                <motion.button
+                  whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative px-8 py-4 border-2 border-[var(--color-electric-blue)]/30 rounded-lg text-foreground hover:text-[var(--color-electric-blue)] hover:border-[var(--color-electric-blue)] transition-all group"
+                  transition={{ duration: 0.3 }}
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-[var(--color-electric-blue)]/5 rounded-lg"
+                    initial={{ scale: 0 }}
+                    whileHover={{ scale: 1 }}
                     transition={{ duration: 0.3 }}
-                  >
-                    <motion.div
-                      className="absolute inset-0 bg-[var(--color-electric-blue)]/5 rounded-lg"
-                      initial={{ scale: 0 }}
-                      whileHover={{ scale: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                    <div className="flex items-center gap-2 relative z-10">
-                      <ShoppingCart className="w-6 h-6" />
-                      <span className="font-street text-sm uppercase hidden sm:inline">Cart</span>
-                    </div>
-                  </motion.button>
-                </Link>
+                  />
+                  <div className="flex items-center gap-2 relative z-10">
+                    <ShoppingCart className="w-6 h-6" />
+                    <span className="font-street text-sm uppercase hidden sm:inline">Cart</span>
+                  </div>
+                </motion.button>
                 <motion.span
-                  className="absolute -top-2 -right-4 w-5 h-5 bg-[var(--color-neon-pink)] text-black text-xs font-bold rounded-full flex items-center justify-center shadow-lg ring-2 ring-black pointer-events-none z-50"
+                  className="w-6 h-6 bg-[var(--color-neon-pink)] text-black text-xs font-bold rounded-full flex items-center justify-center shadow-lg ring-2 ring-black"
                   initial={{ scale: 1 }}
                   animate={{ scale: [1, 1.15, 1] }}
                   transition={{
@@ -112,10 +112,11 @@ export const Header: React.FC = () => {
                     duration: 2,
                     ease: "easeInOut"
                   }}
+                  whileHover={{ scale: 1.2 }}
                 >
                   0
                 </motion.span>
-              </div>
+              </Link>
 
               {/* Menu Button */}
               <motion.button
