@@ -2,7 +2,7 @@
 
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn, seededRandom } from "@/lib/utils";
 
 interface StickerBadgeProps {
   children: React.ReactNode;
@@ -17,10 +17,10 @@ export const StickerBadge: React.FC<StickerBadgeProps> = ({
   variant = "circle",
   rotate,
 }) => {
-  // Generate stable random rotation using useMemo to avoid hydration mismatches
+  // Generate stable random rotation using seeded random to avoid hydration mismatches
   const finalRotation = useMemo(
-    () => rotate ?? Math.random() * 6 - 3,
-    [rotate]
+    () => rotate ?? (seededRandom(`sticker-${variant}-${String(children)}`) * 6 - 3),
+    [rotate, variant, children]
   );
 
   const shapes = {

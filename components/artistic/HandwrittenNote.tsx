@@ -2,7 +2,7 @@
 
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn, seededRandom } from "@/lib/utils";
 
 interface HandwrittenNoteProps {
   children: React.ReactNode;
@@ -19,8 +19,8 @@ export const HandwrittenNote: React.FC<HandwrittenNoteProps> = ({
   color = "var(--color-gold)",
   arrow = false,
 }) => {
-  // Generate stable random rotation using useMemo to avoid hydration mismatches
-  const rotation = useMemo(() => Math.random() * 4 - 2, []);
+  // Generate stable random rotation using seeded random to avoid hydration mismatches
+  const rotation = useMemo(() => (seededRandom(`note-${author}-${String(children)}`) * 4) - 2, [author, children]);
 
   return (
     <motion.div

@@ -2,7 +2,7 @@
 
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn, seededRandom } from "@/lib/utils";
 import { paintDrip } from "@/lib/animations";
 
 interface PaintDripProps {
@@ -16,10 +16,10 @@ export const PaintDrip: React.FC<PaintDripProps> = ({
   color = "var(--color-gold)",
   count = 3,
 }) => {
-  // Generate stable random heights using useMemo to avoid hydration mismatches
+  // Generate stable random heights using seeded random to avoid hydration mismatches
   const heights = useMemo(
-    () => Array.from({ length: count }, () => 30 + Math.random() * 40),
-    [count]
+    () => Array.from({ length: count }, (_, index) => 30 + (seededRandom(`drip-${color}-${index}`) * 40)),
+    [count, color]
   );
 
   return (

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn, seededRandom } from "@/lib/utils";
 
 interface GraffitiTextProps {
   children: string;
@@ -33,9 +33,12 @@ export const GraffitiText: React.FC<GraffitiTextProps> = ({
 
   const letters = children.split("");
 
-  // Generate stable random rotations using useMemo to avoid hydration mismatches
+  // Generate stable random rotations using seeded random to avoid hydration mismatches
   const randomRotations = useMemo(
-    () => letters.map(() => Math.random() * 20 - 10),
+    () => letters.map((letter, index) => {
+      const seed = `${children}-${index}`;
+      return (seededRandom(seed) * 20) - 10;
+    }),
     [children]
   );
 

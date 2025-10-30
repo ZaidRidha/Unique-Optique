@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Celebrity } from "@/lib/constants";
 import { polaroidShuffle } from "@/lib/animations";
-import { cn } from "@/lib/utils";
+import { cn, seededRandom } from "@/lib/utils";
 
 interface CelebrityPolaroidProps {
   celebrity: Celebrity;
@@ -18,9 +18,9 @@ export const CelebrityPolaroid: React.FC<CelebrityPolaroidProps> = ({
   index = 0,
   className,
 }) => {
-  // Generate stable random values using useMemo to avoid hydration mismatches
-  const rotation = useMemo(() => Math.random() * 6 - 3, [celebrity.id]);
-  const showStar = useMemo(() => Math.random() > 0.5, [celebrity.id]);
+  // Generate stable random values using seeded random to avoid hydration mismatches
+  const rotation = useMemo(() => (seededRandom(celebrity.id) * 6) - 3, [celebrity.id]);
+  const showStar = useMemo(() => seededRandom(`${celebrity.id}-star`) > 0.5, [celebrity.id]);
 
   return (
     <motion.div
