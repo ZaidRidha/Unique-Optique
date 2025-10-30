@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="currentColor">
+  <!-- Large splatter -->
+  <path d="M100 100 C100 100, 85 95, 75 98 C65 101, 60 110, 55 105 C50 100, 52 88, 48 85 C44 82, 35 88, 32 82 C29 76, 38 68, 35 62 C32 56, 22 58, 22 50 C22 42, 32 38, 35 32 C38 26, 32 18, 40 15 C48 12, 55 22, 62 18 C69 14, 65 5, 73 5 C81 5, 85 15, 92 12 C99 9, 98 0, 106 2 C114 4, 115 14, 122 15 C129 16, 135 8, 141 12 C147 16, 142 26, 148 30 C154 34, 165 28, 168 35 C171 42, 162 48, 165 55 C168 62, 178 60, 178 68 C178 76, 168 78, 168 85 C168 92, 175 98, 168 102 C161 106, 152 98, 145 102 C138 106, 142 116, 135 118 C128 120, 122 110, 115 112 C108 114, 108 124, 100 122 C92 120, 92 110, 85 110 C78 110, 72 118, 68 112 C64 106, 72 98, 68 92 C64 86, 54 92, 52 85 C50 78, 60 72, 58 65 C56 58, 48 58, 50 50 C52 42, 62 42, 62 35 C62 28, 54 22, 60 18 C66 14, 72 22, 78 20 C84 18, 82 10, 90 12 C98 14, 100 24, 100 30 Z" opacity="0.9"/>
+
+  <!-- Medium splatter -->
+  <ellipse cx="160" cy="40" rx="15" ry="20" transform="rotate(25 160 40)" opacity="0.7"/>
+  <circle cx="165" cy="35" r="5" opacity="0.6"/>
+  <ellipse cx="155" cy="50" rx="8" ry="12" transform="rotate(-15 155 50)" opacity="0.5"/>
+
+  <!-- Small splatters -->
+  <circle cx="40" cy="160" r="8" opacity="0.8"/>
+  <ellipse cx="180" cy="170" rx="6" ry="10" transform="rotate(45 180 170)" opacity="0.7"/>
+  <circle cx="50" cy="185" r="5" opacity="0.6"/>
+
+  <!-- Drips from splatters -->
+  <path d="M100 122 L100 140" stroke="currentColor" stroke-width="3" opacity="0.8"/>
+  <path d="M85 115 L85 130" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+  <path d="M115 118 L115 135" stroke="currentColor" stroke-width="2.5" opacity="0.75"/>
+</svg>

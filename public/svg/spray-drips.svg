@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="currentColor">
+  <path d="M10 0 C10 0, 8 5, 9 10 C10 15, 12 18, 11 23 C10 28, 8 32, 9 37 C10 42, 11 45, 10 50 L10 55 C10 58, 8 60, 10 63 L10 70 C10 73, 12 75, 10 78 L10 85 C10 90, 8 95, 10 100" stroke="currentColor" stroke-width="3" fill="none" opacity="0.8"/>
+
+  <path d="M30 5 C30 5, 28 10, 29 15 C30 20, 32 23, 31 28 C30 33, 28 37, 29 42 C30 47, 31 50, 30 55" stroke="currentColor" stroke-width="2.5" fill="none" opacity="0.6"/>
+
+  <path d="M50 10 C50 10, 48 15, 49 20 C50 25, 52 28, 51 33 C50 38, 48 42, 49 47 C50 52, 51 55, 50 60 L50 70 C50 75, 48 80, 50 85" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7"/>
+
+  <circle cx="15" cy="5" r="2" opacity="0.5"/>
+  <circle cx="35" cy="8" r="1.5" opacity="0.4"/>
+  <circle cx="55" cy="12" r="1.8" opacity="0.5"/>
+  <circle cx="25" cy="15" r="1.2" opacity="0.3"/>
+
+  <ellipse cx="12" cy="25" rx="3" ry="5" opacity="0.4"/>
+  <ellipse cx="32" cy="30" rx="2.5" ry="4" opacity="0.3"/>
+</svg>

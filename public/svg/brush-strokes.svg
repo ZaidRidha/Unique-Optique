@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" fill="none" stroke="currentColor">
+  <!-- Horizontal brush stroke -->
+  <path d="M 10 50 Q 30 45, 60 48 T 120 52 T 180 48 T 240 50 T 290 52"
+        stroke-width="25"
+        stroke-linecap="round"
+        opacity="0.8"/>
+
+  <!-- Rough edges -->
+  <path d="M 15 40 Q 35 38, 65 42"
+        stroke-width="3"
+        stroke-linecap="round"
+        opacity="0.5"/>
+
+  <path d="M 180 58 Q 210 60, 240 58"
+        stroke-width="3"
+        stroke-linecap="round"
+        opacity="0.5"/>
+</svg>
