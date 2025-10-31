@@ -2,29 +2,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { GraffitiText } from "@/components/artistic/GraffitiText";
 import { GlassesCarousel } from "@/components/home/GlassesCarousel";
-import { BRAND_INFO } from "@/lib/constants";
 
 export const HeroCarousel: React.FC = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black">
       {/* Content */}
       <div className="h-full flex flex-col items-center justify-center px-4 text-center gap-12 pt-40">
-
-        {/* Main Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-        >
-          <GraffitiText
-            variant="gold"
-            className="text-5xl md:text-7xl lg:text-8xl"
-          >
-            {BRAND_INFO.tagline}
-          </GraffitiText>
-        </motion.div>
 
         {/* Glasses Carousel */}
         <div className="w-full flex-1 flex items-center justify-center">
