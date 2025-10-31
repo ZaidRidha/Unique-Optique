@@ -8,12 +8,14 @@ export const HeroCarousel: React.FC = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black">
       {/* Content */}
-      <div className="h-full flex flex-col items-center justify-center px-4 text-center gap-12 pt-40">
-
-        {/* Glasses Carousel */}
-        <div className="w-full flex-1 flex items-center justify-center">
-          <GlassesCarousel />
+      <div className="h-full flex flex-col items-center justify-center px-4 text-center gap-12">
+        <div className="text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-[var(--color-gold)] italic">
+            unique optique
+          </h2>
         </div>
+
+        <GlassesCarousel />
 
         {/* Scroll Indicator */}
         <motion.div
@@ -43,7 +45,6 @@ export const HeroCarousel: React.FC = () => {
           </div>
         </motion.div>
       </div>
-
     </div>
   );
 };
