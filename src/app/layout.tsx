@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/layout/CustomCursor";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="antialiased">
         <CustomCursor />
+        <Header />
         <SmoothScroll>
           <main className="min-h-screen">
             {children}
