@@ -81,9 +81,10 @@ export const CustomCursor: React.FC = () => {
           animate={{
             x: mousePosition.x + 10,
             y: mousePosition.y + 10,
+            opacity: 1,
+            scale: 1,
           }}
           initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
         >
           <svg
