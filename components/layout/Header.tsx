@@ -49,13 +49,13 @@ export const Header: React.FC = () => {
             </Link>
 
             {/* Navigation Links - Centered absolutely */}
-            <nav className="hidden lg:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
+            <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
               {NAV_LINKS.slice(0, 4).map((link) => (
                 <Link key={link.href} href={link.href}>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-6 py-3 font-grotesk text-base font-medium text-[var(--color-offwhite)] hover:text-[var(--color-gold)] transition-colors relative group"
+                    className="px-4 py-3 font-grotesk text-base font-medium text-[var(--color-offwhite)] hover:text-[var(--color-gold)] transition-colors relative group whitespace-nowrap"
                   >
                     {link.name}
                     <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-[var(--color-gold)] group-hover:w-full transition-all duration-300" />
