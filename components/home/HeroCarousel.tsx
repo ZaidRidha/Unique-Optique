@@ -6,50 +6,95 @@ import { GlassesCarousel } from "@/components/home/GlassesCarousel";
 
 export const HeroCarousel: React.FC = () => {
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-black">
+    <div>
       {/* Content */}
-      <div className="h-full flex flex-col items-center justify-center text-center gap-20 ">
-        <div className="text-center">
-          <h2 className="font-display text-4xl md:text-5xl text-[var(--color-gold)] italic">
-            Unique Optique
-          </h2>
 
-        </div>
-
-        <h3 className="font-marker text-2xl md:text-3xl text-[var(--color-gold)]">
-          New Arrivals...
-        </h3>
-
-        <GlassesCarousel />
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 10, 0] }}
-          transition={{
-            opacity: { delay: 2, duration: 1 },
-            y: { repeat: Infinity, duration: 1.5, ease: "easeInOut" },
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: -20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+          ease: [0.34, 1.56, 0.64, 1],
+        }}
+        style={{
+          textAlign: "center",
+          marginTop: "125px",
+          marginBottom: "75px",
+        }}
+      >
+        <motion.h2
+          animate={{
+            textShadow: [
+              "0 0 30px rgba(212, 175, 55, 0.6), 0 0 60px rgba(212, 175, 55, 0.3)",
+              "0 0 50px rgba(212, 175, 55, 0.9), 0 0 80px rgba(212, 175, 55, 0.5)",
+              "0 0 30px rgba(212, 175, 55, 0.6), 0 0 60px rgba(212, 175, 55, 0.3)",
+            ],
           }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2"
+          transition={{
+            textShadow: {
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
+          }}
+          style={{
+            fontSize: 'clamp(3rem, 8vw, 5rem)',
+            color: 'var(--color-gold)',
+            filter: 'brightness(1.1)',
+            fontFamily: 'Bebas Neue, sans-serif',
+            fontWeight: '400',
+            letterSpacing: '0.05em',
+          }}
         >
-          <div className="flex flex-col items-center space-y-2">
-            <span className="font-marker text-[var(--color-gold)] text-sm">
-              Scroll to explore
-            </span>
-            <svg
-              className="w-6 h-6 text-[var(--color-gold)]"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </div>
-        </motion.div>
-      </div>
+          Unique Optique
+        </motion.h2>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 0.4,
+          delay: 0.3,
+          ease: [0.34, 1.56, 0.64, 1],
+        }}
+        style={{
+          maxWidth: '1300px',
+          margin: '0 auto',
+          paddingLeft: '1rem',
+          paddingRight: '1rem',
+          marginBottom: '30px',
+        }}
+      >
+        <motion.h3
+          animate={{
+            textShadow: [
+              "0 0 25px rgba(212, 175, 55, 0.5), 0 0 40px rgba(212, 175, 55, 0.2)",
+              "0 0 40px rgba(212, 175, 55, 0.8), 0 0 60px rgba(212, 175, 55, 0.4)",
+              "0 0 25px rgba(212, 175, 55, 0.5), 0 0 40px rgba(212, 175, 55, 0.2)",
+            ],
+          }}
+          transition={{
+            textShadow: {
+              duration: 1.8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
+          }}
+          style={{
+            textAlign: "left",
+            fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+            color: 'var(--color-gold)',
+            filter: 'brightness(1.1)',
+            fontFamily: 'Bebas Neue, sans-serif',
+            fontWeight: '400',
+            letterSpacing: '0.05em',
+          }}
+        >
+          Latest Arrivals...
+        </motion.h3>
+      </motion.div>
+      <GlassesCarousel />
+      <GlassesCarousel />
     </div>
   );
 };
