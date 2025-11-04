@@ -17,7 +17,7 @@ export const HeroCarousel: React.FC = () => {
         </div>
 
         <h3 className="font-marker text-2xl md:text-3xl text-[var(--color-gold)]">
-          New Arrivals
+          New Arrivals...
         </h3>
 
         <GlassesCarousel />

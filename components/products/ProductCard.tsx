@@ -26,22 +26,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
       className={cn("group relative", className)}
     >
       <Link href={`/collections/${product.id}`}>
-        <div className="relative overflow-hidden rounded-lg bg-[var(--color-concrete)]/5 border-2 border-transparent group-hover:border-[var(--color-neon-pink)] transition-all duration-300">
+        <div className="relative overflow-hidden rounded-xl bg-[var(--color-concrete)]/5 border-2 border-[var(--color-concrete)]/20 group-hover:border-[var(--color-gold)]/60 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-[var(--color-gold)]/20">
           {/* Product Image */}
           <div className="aspect-square relative overflow-hidden">
             <Image
               src="/images/placeholders/GlassesPlaceHolder.png"
               alt={product.name}
               fill
-              className="object-cover"
-            />
-
-            {/* Spray Paint Border Effect on Hover */}
-            <motion.div
-              className="absolute inset-0 border-4 border-[var(--color-neon-pink)] opacity-0 group-hover:opacity-100 pointer-events-none"
-              style={{ filter: "blur(2px)" }}
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 0.6 }}
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
             />
           </div>
 
@@ -57,14 +49,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
 
           {/* Quick Add Button */}
           <motion.div
-            className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity"
-            initial={{ scale: 0 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-all duration-300"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0 }}
           >
-            <button className="w-12 h-12 bg-[var(--color-gold)] text-black rounded-full flex items-center justify-center hover:bg-[var(--color-gold-light)] transition-colors shadow-lg">
-              <ShoppingCart className="w-5 h-5" />
-            </button>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full py-3 px-4 bg-gradient-to-r from-[var(--color-gold)] to-[var(--color-gold-light)] text-black font-grotesk font-bold text-sm md:text-base rounded-lg flex items-center justify-center gap-2 hover:shadow-2xl hover:shadow-[var(--color-gold)]/50 transition-all duration-200 backdrop-blur-md"
+            >
+              <ShoppingCart className="w-4 h-4 md:w-5 md:h-5" />
+              <span>Quick Add</span>
+            </motion.button>
           </motion.div>
         </div>
 
@@ -80,24 +76,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
             {product.name}
           </h3>
 
-          {/* Price with Graffiti Style */}
+          {/* Price */}
           <div className="flex items-center justify-between">
             <div className="relative">
-              <p className="font-street text-[var(--color-neon-pink)] text-xl">
+              <p className="font-street text-[var(--color-gold)] text-xl md:text-2xl font-semibold">
                 {formatPrice(product.price)}
               </p>
-              <svg
-                className="absolute -bottom-1 left-0 w-full h-1 opacity-60"
-                viewBox="0 0 100 5"
-              >
-                <path
-                  d="M 0 2.5 Q 25 1, 50 2.5 T 100 2.5"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                  className="text-[var(--color-neon-pink)]"
-                />
-              </svg>
             </div>
 
             {product.celebrity && (
@@ -112,7 +96,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
             {product.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-1 text-xs font-grotesk text-[var(--color-concrete)] border border-[var(--color-concrete)]/30 rounded"
+                className="px-3 py-1.5 text-xs font-grotesk text-[var(--color-concrete)]/80 bg-[var(--color-concrete)]/10 border border-[var(--color-concrete)]/20 rounded-full hover:border-[var(--color-gold)]/40 hover:text-[var(--color-gold)] transition-colors duration-200"
               >
                 {tag}
               </span>
