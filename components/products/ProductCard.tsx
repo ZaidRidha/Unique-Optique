@@ -29,9 +29,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
         <div className="relative overflow-hidden rounded-lg bg-[var(--color-concrete)]/5 border-2 border-transparent group-hover:border-[var(--color-neon-pink)] transition-all duration-300">
           {/* Product Image */}
           <div className="aspect-square relative overflow-hidden">
-            <div className="w-full h-full bg-gradient-to-br from-[var(--color-concrete)]/10 to-transparent flex items-center justify-center">
-              <span className="text-[var(--color-concrete)]/30 font-display text-6xl">👓</span>
-            </div>
+            <Image
+              src="/images/placeholders/GlassesPlaceHolder.png"
+              alt={product.name}
+              fill
+              className="object-cover"
+            />
 
             {/* Spray Paint Border Effect on Hover */}
             <motion.div
