@@ -36,7 +36,39 @@ export const HeroCarousel: React.FC = () => {
           />
         </motion.div>
 
- 
+        {/* Graffiti Motto */}
+        <motion.div
+          initial={{ opacity: 0, x: -100, rotate: -5 }}
+          animate={{ opacity: 1, x: 0, rotate: -3 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
+          style={{
+            position: 'absolute',
+            bottom: '20%',
+            left: '20px',
+            zIndex: '10',
+            transform: 'rotate(-3deg)',
+          }}
+        >
+          <div
+            style={{
+              fontFamily: 'Bebas Neue, sans-serif',
+              fontSize: 'clamp(1.5rem, 4vw, 3rem)',
+              fontWeight: 'bold',
+              color: 'var(--color-gold)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              textShadow: '3px 3px 0px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.4)',
+              padding: '10px 20px',
+              background: 'rgba(0, 0, 0, 0.3)',
+              borderLeft: '6px solid var(--color-gold)',
+              backdropFilter: 'blur(5px)',
+            }}
+          >
+            THE BEST FRAMES
+            <br />
+            IN MANHATTAN
+          </div>
+        </motion.div>
 
         {/* Unique Optique Title */}
         <motion.div
