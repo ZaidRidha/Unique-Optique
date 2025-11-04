@@ -105,6 +105,75 @@ export const HeroCarousel: React.FC = () => {
           </div>
         </motion.div>
 
+        {/* Taped On Glasses Image 2 */}
+        <motion.div
+          initial={{ opacity: 0, rotate: -8, y: -50 }}
+          animate={{ opacity: 1, rotate: -5, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7, ease: [0.34, 1.56, 0.64, 1] }}
+          style={{
+            position: 'absolute',
+            top: '15%',
+            left: '8%',
+            zIndex: '10',
+            transform: 'rotate(-5deg)',
+          }}
+        >
+          {/* Tape effect on top */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '-15px',
+              left: '50%',
+              transform: 'translateX(-50%) rotate(2deg)',
+              width: '120px',
+              height: '30px',
+              background: 'rgba(255, 255, 200, 0.4)',
+              backdropFilter: 'blur(2px)',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+              zIndex: '1',
+            }}
+          />
+
+          {/* Image frame */}
+          <div
+            style={{
+              padding: '15px',
+              background: 'white',
+              boxShadow: `
+                0 8px 30px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(212, 175, 55, 0.4),
+                inset 0 0 20px rgba(0, 0, 0, 0.1)
+              `,
+              border: '2px solid rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <Image
+              src="/images/placeholders/HeroGlasses2.jpeg"
+              alt="Featured Glasses"
+              width={250}
+              height={250}
+              style={{
+                display: 'block',
+                objectFit: 'cover',
+                filter: 'contrast(1.1) saturate(1.2)',
+              }}
+            />
+            {/* Handwritten style text */}
+            <div
+              style={{
+                marginTop: '8px',
+                fontFamily: 'cursive',
+                fontSize: '1rem',
+                color: '#333',
+                textAlign: 'center',
+                fontStyle: 'italic',
+              }}
+            >
+              versace, versace 🔥
+            </div>
+          </div>
+        </motion.div>
+
         {/* Unique Optique Title */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9, y: -20 }}
@@ -139,31 +208,32 @@ export const HeroCarousel: React.FC = () => {
             Unique Optique
           </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.5,
-              delay: 0.5,
-              ease: "easeOut",
-            }}
-          >
-            <p
-              style={{
-                fontSize: 'clamp(1rem, 2vw, 1.3rem)',
-                color: 'var(--color-gold)',
-                fontFamily: 'Bebas Neue, sans-serif',
-                fontWeight: '400',
-                letterSpacing: '0.15em',
-                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
-                marginBottom: '0px',
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.5,
+                ease: "easeOut",
               }}
             >
-              MANHATTAN, NY · THE BEST FRAMES
-            </p>
-          </motion.div>
+              <p
+                style={{
+                  fontSize: 'clamp(1rem, 2vw, 1.3rem)',
+                  color: 'var(--color-gold)',
+                  fontFamily: 'Bebas Neue, sans-serif',
+                  fontWeight: '400',
+                  letterSpacing: '0.15em',
+                  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
+                  marginBottom: '15px',
+                }}
+              >
+                MANHATTAN, NY · THE BEST FRAMES
+              </p>
+            </motion.div>
 
-          <motion.button
+            <motion.button
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{
@@ -193,6 +263,7 @@ export const HeroCarousel: React.FC = () => {
           >
             See Full Collection
           </motion.button>
+          </div>
         </motion.div>
       </div>
 
