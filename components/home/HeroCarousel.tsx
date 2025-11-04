@@ -8,10 +8,10 @@ export const HeroCarousel: React.FC = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black">
       {/* Content */}
-      <div className="h-full flex flex-col items-center justify-center text-center ">
+      <div className="h-full flex flex-col items-center justify-center text-center gap-20 ">
         <div className="text-center">
           <h2 className="font-display text-4xl md:text-5xl text-[var(--color-gold)] italic">
-            unique optique
+            Unique Optique
           </h2>
 
         </div>
