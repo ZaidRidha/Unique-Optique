@@ -8,12 +8,17 @@ export const HeroCarousel: React.FC = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black">
       {/* Content */}
-      <div className="h-full flex flex-col items-center justify-center px-4 text-center gap-12">
+      <div className="h-full flex flex-col items-center justify-center text-center ">
         <div className="text-center">
           <h2 className="font-display text-4xl md:text-5xl text-[var(--color-gold)] italic">
             unique optique
           </h2>
+
         </div>
+
+        <h3 className="font-marker text-2xl md:text-3xl text-[var(--color-gold)]">
+          New Arrivals
+        </h3>
 
         <GlassesCarousel />
 
