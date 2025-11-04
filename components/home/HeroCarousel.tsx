@@ -43,7 +43,7 @@ export const HeroCarousel: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
           style={{
             position: 'absolute',
-            top: '15%',
+            top: '25%',
             right: '8%',
             zIndex: '10',
             transform: 'rotate(5deg)',
@@ -112,8 +112,8 @@ export const HeroCarousel: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.7, ease: [0.34, 1.56, 0.64, 1] }}
           style={{
             position: 'absolute',
-            top: '15%',
-            left: '8%',
+            top: '20%',
+            left: '11%',
             zIndex: '10',
             transform: 'rotate(-5deg)',
           }}
@@ -169,7 +169,7 @@ export const HeroCarousel: React.FC = () => {
                 fontStyle: 'italic',
               }}
             >
-              versace, versace 🔥
+              Versace, Versace 🔥
             </div>
           </div>
         </motion.div>
