@@ -11,23 +11,30 @@ export const HeroCarousel: React.FC = () => {
       {/* Unique Optique Section with Danny DeVito */}
       <div style={{ position: 'relative', marginBottom: '60px', minHeight: '60vh' }}>
         {/* Danny DeVito Background */}
-        <div style={{
-          position: 'absolute',
-          top: '0',
-          left: '0',
-          width: '100%',
-          height: '100%',
-          opacity: '0.35',
-          zIndex: '0',
-          pointerEvents: 'none'
-        }}>
+        <motion.div
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 0.35, scale: 1 }}
+          transition={{
+            duration: 1.2,
+            ease: "easeOut"
+          }}
+          style={{
+            position: 'absolute',
+            top: '0',
+            left: '0',
+            width: '100%',
+            height: '100%',
+            zIndex: '0',
+            pointerEvents: 'none'
+          }}
+        >
           <Image
             src="/images/celebrities/DannyDevito.jpg"
             alt="Danny DeVito"
             fill
             style={{ objectFit: 'cover', filter: 'sepia(0.5) saturate(2) brightness(0.9) contrast(1.2)' }}
           />
-        </div>
+        </motion.div>
 
  
 
@@ -64,25 +71,36 @@ export const HeroCarousel: React.FC = () => {
             Unique Optique
           </motion.h1>
 
-          <motion.p
+          <motion.button
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 0 30px rgba(212, 175, 55, 0.6)',
+            }}
+            whileTap={{ scale: 0.95 }}
             transition={{
               duration: 0.6,
               delay: 0.3,
               ease: "easeOut",
             }}
+            onClick={() => window.location.href = '/collections'}
             style={{
-              fontSize: 'clamp(1.2rem, 3vw, 2rem)',
-              color: 'var(--color-gold)',
+              fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
+              color: 'black',
+              background: 'linear-gradient(135deg, var(--color-gold), #DAA520)',
               fontFamily: 'Bebas Neue, sans-serif',
               fontWeight: '400',
               letterSpacing: '0.15em',
-              opacity: '0.9',
+              padding: '16px 48px',
+              borderRadius: '50px',
+              border: '2px solid var(--color-gold)',
+              cursor: 'pointer',
+              boxShadow: '0 4px 20px rgba(212, 175, 55, 0.3)',
             }}
           >
-            See full collection
-          </motion.p>
+            See Full Collection
+          </motion.button>
         </motion.div>
       </div>
 
