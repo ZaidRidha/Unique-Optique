@@ -15,13 +15,13 @@ export const Header: React.FC = () => {
   const headerBackground = useTransform(
     scrollY,
     [0, 100],
-    ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.95)"]
+    ["rgba(0, 0, 0, 0.95)", "rgba(0, 0, 0, 0.95)"]
   );
 
   const headerBorder = useTransform(
     scrollY,
     [0, 100],
-    ["rgba(212, 175, 55, 0)", "rgba(212, 175, 55, 0.3)"]
+    ["rgba(212, 175, 55, 0.3)", "rgba(212, 175, 55, 0.3)"]
   );
 
   return (
