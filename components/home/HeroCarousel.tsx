@@ -8,9 +8,9 @@ import { GlassesCarousel } from "@/components/home/GlassesCarousel";
 export const HeroCarousel: React.FC = () => {
   return (
     <div>
-      {/* Unique Optique Section with Danny DeVito */}
+      {/* Unique Optique Section with Bloody Osiris */}
       <div style={{ position: 'relative', marginBottom: '60px', minHeight: '60vh' }}>
-        {/* Danny DeVito Background */}
+        {/* Bloody Osiris Background */}
         <motion.div
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 0.35, scale: 1 }}
@@ -29,8 +29,8 @@ export const HeroCarousel: React.FC = () => {
           }}
         >
           <Image
-            src="/images/celebrities/DannyDevito.jpg"
-            alt="Danny DeVito"
+            src="/images/celebrities/BloodyOsiris.jpg"
+            alt="Bloody Osiris"
             fill
             style={{ objectFit: 'cover', filter: 'sepia(0.5) saturate(2) brightness(0.9) contrast(1.2)' }}
           />
