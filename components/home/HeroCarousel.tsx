@@ -13,7 +13,7 @@ export const HeroCarousel: React.FC = () => {
         {/* Bloody Osiris Background */}
         <motion.div
           initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 0.35, scale: 1 }}
+          animate={{ opacity: 0.35, scale: 0.85 }}
           transition={{
             duration: 1.2,
             ease: "easeOut"
@@ -32,7 +32,7 @@ export const HeroCarousel: React.FC = () => {
             src="/images/celebrities/BloodyOsiris.jpg"
             alt="Bloody Osiris"
             fill
-            style={{ objectFit: 'cover', filter: 'sepia(0.5) saturate(2) brightness(0.9) contrast(1.2)' }}
+            style={{ objectFit: 'cover', objectPosition: 'center 20%', filter: 'sepia(0.5) saturate(2) brightness(0.9) contrast(1.2)' }}
           />
         </motion.div>
 
@@ -43,8 +43,8 @@ export const HeroCarousel: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
           style={{
             position: 'absolute',
-            top: '25%',
-            right: '8%',
+            top: '29%',
+            right: '4%',
             zIndex: '10',
             transform: 'rotate(5deg)',
           }}
@@ -112,8 +112,8 @@ export const HeroCarousel: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.7, ease: [0.34, 1.56, 0.64, 1] }}
           style={{
             position: 'absolute',
-            top: '20%',
-            left: '11%',
+            top: '25%',
+            left: '4%',
             zIndex: '10',
             transform: 'rotate(-5deg)',
           }}
@@ -191,8 +191,8 @@ export const HeroCarousel: React.FC = () => {
             minHeight: "90vh",
             position: "relative",
             zIndex: "5",
-            paddingTop: "100px",
-            paddingBottom: "80px",
+            paddingTop: "350px",
+            paddingBottom: "350px",
           }}
         >
           <motion.h1
