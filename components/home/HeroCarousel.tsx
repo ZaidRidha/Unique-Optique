@@ -198,7 +198,7 @@ export const HeroCarousel: React.FC = () => {
           <motion.h1
             style={{
               fontSize: 'clamp(3rem, 8vw, 5rem)',
-              color: 'var(--color-gold)',
+              color: 'white',
               fontFamily: 'Bebas Neue, sans-serif',
               fontWeight: '700',
               letterSpacing: '0.08em',
@@ -221,7 +221,7 @@ export const HeroCarousel: React.FC = () => {
               <p
                 style={{
                   fontSize: 'clamp(1rem, 2vw, 1.3rem)',
-                  color: 'var(--color-gold)',
+                  color: 'white',
                   fontFamily: 'Bebas Neue, sans-serif',
                   fontWeight: '400',
                   letterSpacing: '0.15em',
@@ -249,7 +249,7 @@ export const HeroCarousel: React.FC = () => {
             onClick={() => window.location.href = '/collections'}
             style={{
               fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
-              color: 'black',
+              color: 'white',
               background: 'linear-gradient(135deg, var(--color-gold), #DAA520)',
               fontFamily: 'Bebas Neue, sans-serif',
               fontWeight: '700',
