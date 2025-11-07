@@ -13,7 +13,7 @@ export const HeroCarousel: React.FC = () => {
         {/* Bloody Osiris Background */}
         <motion.div
           initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 0.35, scale: 0.85 }}
+          animate={{ opacity: 0.35, scale: 1 }}
           transition={{
             duration: 1.2,
             ease: "easeOut"
@@ -32,7 +32,7 @@ export const HeroCarousel: React.FC = () => {
             src="/images/celebrities/BloodyOsiris.jpg"
             alt="Bloody Osiris"
             fill
-            style={{ objectFit: 'cover', objectPosition: 'center 20%', filter: 'sepia(0.5) saturate(2) brightness(0.9) contrast(1.2)' }}
+            style={{ objectFit: 'cover', objectPosition: 'center 10%', filter: 'sepia(0.5) saturate(2) brightness(0.9) contrast(1.2)' }}
           />
         </motion.div>
 
@@ -43,8 +43,8 @@ export const HeroCarousel: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
           style={{
             position: 'absolute',
-            top: '29%',
-            right: '4%',
+            top: '25%',
+            right: '5%',
             zIndex: '10',
             transform: 'rotate(5deg)',
           }}
@@ -112,8 +112,8 @@ export const HeroCarousel: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.7, ease: [0.34, 1.56, 0.64, 1] }}
           style={{
             position: 'absolute',
-            top: '25%',
-            left: '4%',
+            top: '20%',
+            left: '5%',
             zIndex: '10',
             transform: 'rotate(-5deg)',
           }}
@@ -187,22 +187,20 @@ export const HeroCarousel: React.FC = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "center",
             minHeight: "90vh",
             position: "relative",
             zIndex: "5",
-            paddingTop: "350px",
-            paddingBottom: "350px",
+            gap: "0px",
           }}
         >
           <motion.h1
             style={{
-              fontSize: 'clamp(3rem, 8vw, 5rem)',
-              color: 'white',
+              fontSize: 'clamp(4.5rem, 12vw, 8rem)',
+              color: '#ffffff',
               fontFamily: 'Bebas Neue, sans-serif',
               fontWeight: '700',
-              letterSpacing: '0.08em',
-              textShadow: '3px 3px 6px rgba(0, 0, 0, 0.8)',
+              letterSpacing: '0.12em',
             }}
           >
             Unique Optique
@@ -220,12 +218,11 @@ export const HeroCarousel: React.FC = () => {
             >
               <p
                 style={{
-                  fontSize: 'clamp(1rem, 2vw, 1.3rem)',
-                  color: 'white',
+                  fontSize: 'clamp(1.4rem, 3vw, 2rem)',
+                  color: '#ffffff',
                   fontFamily: 'Bebas Neue, sans-serif',
                   fontWeight: '400',
-                  letterSpacing: '0.15em',
-                  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
+                  letterSpacing: '0.2em',
                   marginBottom: '15px',
                 }}
               >
@@ -249,7 +246,7 @@ export const HeroCarousel: React.FC = () => {
             onClick={() => window.location.href = '/collections'}
             style={{
               fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
-              color: 'white',
+              color: 'black',
               background: 'linear-gradient(135deg, var(--color-gold), #DAA520)',
               fontFamily: 'Bebas Neue, sans-serif',
               fontWeight: '700',
@@ -284,11 +281,11 @@ export const HeroCarousel: React.FC = () => {
       >
         <motion.h3
           style={{
-            fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-            color: 'var(--color-gold)',
+            fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+            color: '#ffffff',
             fontFamily: 'Bebas Neue, sans-serif',
             fontWeight: '400',
-            letterSpacing: '0.05em',
+            letterSpacing: '0.08em',
           }}
         >
           Latest Arrivals...
