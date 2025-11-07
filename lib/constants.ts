@@ -50,8 +50,8 @@ export const CELEBRITIES: Celebrity[] = [
     category: "hip-hop",
   },
   {
-    id: "celebrity-4",
-    name: "Artist Name",
+    id: "Veeze",
+    name: "Veeze",
     image: "/images/celebrities/placeholder-4.jpg",
     date: "2023",
     category: "fashion",
