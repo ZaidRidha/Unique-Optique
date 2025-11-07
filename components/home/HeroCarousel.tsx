@@ -44,7 +44,7 @@ export const HeroCarousel: React.FC = () => {
           style={{
             position: 'absolute',
             top: '25%',
-            right: '5%',
+            right: '3%',
             zIndex: '10',
             transform: 'rotate(5deg)',
           }}
@@ -113,7 +113,7 @@ export const HeroCarousel: React.FC = () => {
           style={{
             position: 'absolute',
             top: '20%',
-            left: '5%',
+            left: '3%',
             zIndex: '10',
             transform: 'rotate(-5deg)',
           }}
@@ -148,10 +148,10 @@ export const HeroCarousel: React.FC = () => {
             }}
           >
             <Image
-              src="/images/placeholders/HeroGlasses2.jpeg"
-              alt="Featured Glasses"
-              width={250}
-              height={250}
+              src="/images/celebrities/BloodyOsiris.jpg"
+              alt="Bloody Osiris"
+              width={350}
+              height={350}
               style={{
                 display: 'block',
                 objectFit: 'cover',
@@ -169,7 +169,7 @@ export const HeroCarousel: React.FC = () => {
                 fontStyle: 'italic',
               }}
             >
-              Versace, Versace 🔥
+              Bloody Osiris 🔥
             </div>
           </div>
         </motion.div>
