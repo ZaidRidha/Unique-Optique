@@ -31,13 +31,14 @@ export const CelebrityTicker: React.FC = () => {
           {tickerItems.map((celebrity, index) => (
             <div
               key={`${celebrity.id}-${index}`}
-              className="inline-flex items-center space-x-3 mx-6"
+              className="inline-flex items-center"
+              style={{ marginLeft: '0rem', marginRight: '0rem', gap: '1rem' }}
             >
-              <Star className="w-5 h-5 text-black fill-current" />
+              <Star className="w-5 h-5 text-black fill-current flex-shrink-0" style={{ marginBottom: '2px' }} />
               <span className="font-street text-black text-xl uppercase tracking-wider">
                 AS SEEN ON: {celebrity.name}
               </span>
-              <Star className="w-5 h-5 text-black fill-current" />
+              <Star className="w-5 h-5 text-black fill-current flex-shrink-0" style={{ marginBottom: '2px' }} />
             </div>
           ))}
         </motion.div>
