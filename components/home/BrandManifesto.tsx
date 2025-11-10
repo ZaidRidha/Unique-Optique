@@ -1,163 +1,161 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { GraffitiText } from "@/components/artistic/GraffitiText";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { HandwrittenNote } from "@/components/artistic/HandwrittenNote";
-import { BrushStroke } from "@/components/artistic/BrushStroke";
-import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
+import { fadeInUp } from "@/lib/animations";
+import Image from "next/image";
+
+const locations = [
+  {
+    city: "Manhattan",
+    country: "New York, USA",
+    image: "/images/celebrities/BloodyOsiris.jpg",
+    description: "The heart of luxury eyewear for over 30 years",
+  },
+  {
+    city: "London",
+    country: "United Kingdom",
+    image: "/images/celebrities/KingCombs.jpg",
+    description: "British elegance meets contemporary design",
+  },
+  {
+    city: "Paris",
+    country: "France",
+    image: "/images/celebrities/DannyDevito.jpg",
+    description: "The fashion capital's premier optical boutique",
+  },
+];
 
 export const BrandManifesto: React.FC = () => {
-  return (
-    <section className="relative py-32 overflow-hidden w-full flex justify-center" style={{ marginTop: '100px' }}>
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-[var(--color-concrete)]/5 to-black" />
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-      <BrushStroke
-        className="absolute top-1/4 left-0 w-96 opacity-20"
-        color="var(--color-electric-blue)"
-      />
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % locations.length);
+  };
 
-      <div className="w-full max-w-6xl px-4 relative z-10">
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="space-y-16"
-        >
-          {/* Main Statement */}
-          <motion.div variants={staggerItem} className="text-center">
-            <GraffitiText
-              variant="neon-pink"
-              className="text-4xl md:text-6xl lg:text-7xl mb-8"
-            >
-              WHERE HIP-HOP MEETS HIGH FASHION
-            </GraffitiText>
-
-            <p className="font-display text-2xl md:text-3xl text-[var(--color-offwhite)] max-w-4xl mx-auto italic leading-relaxed">
-              For over 30 years, we've been the go-to optical destination for
-              NYC's elite, celebrities, and visionaries.
-            </p>
-          </motion.div>
-
-          {/* Three Pillars */}
-          <motion.div
-            variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16"
-          >
-            <Pillar
-              number="01"
-              title="Celebrity Approved"
-              description="From Danny DeVito to Jim Jones, legends trust us with their vision."
-              color="gold"
-            />
-            <Pillar
-              number="02"
-              title="Expert Fitting"
-              description="30+ years of optical precision meets personalized style consultation."
-              color="neon-pink"
-            />
-            <Pillar
-              number="03"
-              title="Exclusive Selection"
-              description="Curated luxury eyewear from Cartier, DITA, Oliver Peoples & more."
-              color="electric-blue"
-            />
-          </motion.div>
-
-          {/* Quote Section */}
-          <motion.div
-            variants={fadeInUp}
-            className="flex flex-col md:flex-row items-center justify-center gap-8 mt-20"
-          >
-            <HandwrittenNote author="The unique optique Team">
-              We don't just sell glasses. We craft legendary vision. 🔥
-            </HandwrittenNote>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            variants={staggerContainer}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20"
-          >
-            <Stat number="30+" label="Years in Business" />
-            <Stat number="1000+" label="Celebrity Clients" />
-            <Stat number="50+" label="Luxury Brands" />
-            <Stat number="★ 5.0" label="Google Rating" />
-          </motion.div>
-        </motion.div>
-      </div>
-
-      {/* Decorative Spray Paint Splatter */}
-      <div className="absolute bottom-0 right-0 w-64 h-64 opacity-10 pointer-events-none">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="100" cy="100" r="80" fill="var(--color-lime-green)" />
-          <circle cx="140" cy="120" r="40" fill="var(--color-neon-pink)" />
-        </svg>
-      </div>
-    </section>
-  );
-};
-
-const Pillar: React.FC<{
-  number: string;
-  title: string;
-  description: string;
-  color: "gold" | "neon-pink" | "electric-blue";
-}> = ({ number, title, description, color }) => {
-  const colors = {
-    gold: "var(--color-gold)",
-    "neon-pink": "var(--color-neon-pink)",
-    "electric-blue": "var(--color-electric-blue)",
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + locations.length) % locations.length);
   };
 
   return (
-    <motion.div
-      variants={staggerItem}
-      className="relative p-8 border-2 border-[var(--color-concrete)]/20 rounded-lg hover:border-[var(--color-gold)] transition-all group"
-      whileHover={{ y: -10 }}
-    >
-      <div
-        className="font-street text-6xl opacity-20 mb-4"
-        style={{ color: colors[color] }}
-      >
-        {number}
+    <section className="relative py-32 overflow-hidden w-full flex flex-col items-center" style={{ marginTop: '100px' }}>
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-[var(--color-concrete)]/5 to-black" />
+
+      <div className="w-full max-w-6xl px-4 relative z-10">
+        {/* Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="font-display text-5xl md:text-7xl text-[var(--color-gold)] mb-4 tracking-wider">
+            OUR LOCATIONS
+          </h2>
+          <p className="font-display text-xl md:text-2xl text-[var(--color-offwhite)] italic">
+            Three iconic cities. One legendary vision.
+          </p>
+        </motion.div>
+
+        {/* Carousel */}
+        <div className="relative w-full max-w-4xl mx-auto mb-12">
+          <div className="relative aspect-[16/10] rounded-lg overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={locations[currentIndex].image}
+                  alt={locations[currentIndex].city}
+                  fill
+                  className="object-cover"
+                  style={{ filter: 'brightness(0.8) contrast(1.1)' }}
+                />
+
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                {/* Location info */}
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <h3 className="font-display text-4xl md:text-6xl text-[var(--color-gold)] mb-2 tracking-wide">
+                      {locations[currentIndex].city}
+                    </h3>
+                    <p className="font-display text-lg md:text-xl text-[var(--color-offwhite)] mb-2">
+                      {locations[currentIndex].country}
+                    </p>
+                    <p className="font-grotesk text-base md:text-lg text-[var(--color-concrete)] italic">
+                      {locations[currentIndex].description}
+                    </p>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Navigation buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm border-2 border-[var(--color-gold)] flex items-center justify-center hover:bg-[var(--color-gold)] hover:text-black transition-all group z-10"
+            aria-label="Previous location"
+          >
+            <svg className="w-6 h-6 text-[var(--color-gold)] group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <button
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm border-2 border-[var(--color-gold)] flex items-center justify-center hover:bg-[var(--color-gold)] hover:text-black transition-all group z-10"
+            aria-label="Next location"
+          >
+            <svg className="w-6 h-6 text-[var(--color-gold)] group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Dots indicator */}
+          <div className="flex justify-center gap-3 mt-6">
+            {locations.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentIndex
+                    ? 'bg-[var(--color-gold)] w-8'
+                    : 'bg-[var(--color-concrete)]/30 hover:bg-[var(--color-concrete)]/50'
+                }`}
+                aria-label={`Go to location ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Quote Section */}
+        <motion.div
+          variants={fadeInUp}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row items-center justify-center gap-8 mt-12"
+        >
+          <HandwrittenNote author="The unique optique Team">
+            We don't just sell glasses. We craft legendary vision. 🔥
+          </HandwrittenNote>
+        </motion.div>
       </div>
-
-      <h3
-        className="font-street text-2xl uppercase mb-3 tracking-wide"
-        style={{ color: colors[color] }}
-      >
-        {title}
-      </h3>
-
-      <p className="font-grotesk text-[var(--color-concrete)] leading-relaxed">
-        {description}
-      </p>
-
-      {/* Hover Effect */}
-      <motion.div
-        className="absolute inset-0 border-2 opacity-0 group-hover:opacity-100 pointer-events-none rounded-lg"
-        style={{ borderColor: colors[color], filter: "blur(4px)" }}
-      />
-    </motion.div>
-  );
-};
-
-const Stat: React.FC<{ number: string; label: string }> = ({ number, label }) => {
-  return (
-    <motion.div
-      variants={staggerItem}
-      className="text-center p-6 border border-[var(--color-gold)]/30 rounded-lg"
-      whileHover={{ scale: 1.05 }}
-    >
-      <div className="font-display text-4xl md:text-5xl text-[var(--color-gold)] mb-2">
-        {number}
-      </div>
-      <div className="font-grotesk text-sm text-[var(--color-concrete)] uppercase tracking-wider">
-        {label}
-      </div>
-    </motion.div>
+    </section>
   );
 };
