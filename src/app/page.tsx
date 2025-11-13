@@ -23,7 +23,7 @@ export default function Home() {
       {/* Featured Collections */}
       <section className="py-32 px-4 bg-gradient-to-b from-black to-[var(--color-concrete)]/10 flex justify-center" style={{ marginTop: '120px' }}>
         <div className="w-full max-w-7xl">
-          <div className="text-center mb-16">
+          <div className="text-center" style={{ marginBottom: '50px' }}>
             <GraffitiText
               variant="electric-blue"
               className="text-4xl md:text-6xl mb-4"
