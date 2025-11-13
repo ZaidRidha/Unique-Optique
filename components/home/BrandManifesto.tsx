@@ -148,8 +148,8 @@ export const BrandManifesto: React.FC = () => {
           viewport={{ once: true }}
           className={styles.quoteSection}
         >
-          <HandwrittenNote author="The unique optique Team">
-            We don't just sell glasses. We craft legendary vision. 🔥
+          <HandwrittenNote author="The unique optique Team" className={styles.handwrittenNote}>
+            We don't just sell glasses. We craft legendary vision. SHITTIN ME 🔥
           </HandwrittenNote>
         </motion.div>
       </div>
