@@ -56,7 +56,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-concrete)]/10 to-black" />
 
         <div className="w-full max-w-7xl relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center" style={{ marginBottom: '80px' }}>
             <GraffitiText
               variant="neon-pink"
               className="text-4xl md:text-6xl mb-4"
@@ -78,7 +78,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center" style={{ marginTop: '100px' }}>
             <Button variant="spray" size="lg" asChild>
               <Link href="/celebrities">See All Celebrities</Link>
             </Button>
