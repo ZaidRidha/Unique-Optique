@@ -2,7 +2,7 @@ import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { CelebrityTicker } from "@/components/home/CelebrityTicker";
 import { BrandManifesto } from "@/components/home/BrandManifesto";
 import { ProductCard } from "@/components/products/ProductCard";
-import { CelebrityPolaroid } from "@/components/celebrities/CelebrityPolaroid";
+import { CelebrityCarousel } from "@/components/celebrities/CelebrityCarousel";
 import { GraffitiText } from "@/components/artistic/GraffitiText";
 import { Button } from "@/components/ui/Button";
 import { PRODUCTS, CELEBRITIES, COLLECTIONS } from "@/lib/constants";
@@ -68,15 +68,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {CELEBRITIES.map((celebrity, index) => (
-              <CelebrityPolaroid
-                key={celebrity.id}
-                celebrity={celebrity}
-                index={index}
-              />
-            ))}
-          </div>
+          <CelebrityCarousel celebrities={CELEBRITIES} />
 
           <div className="text-center" style={{ marginTop: '100px' }}>
             <Button variant="spray" size="lg" asChild>
