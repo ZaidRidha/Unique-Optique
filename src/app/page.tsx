@@ -21,7 +21,7 @@ export default function Home() {
       <BrandManifesto />
 
       {/* Featured Collections */}
-      <section className="py-32 px-4 bg-gradient-to-b from-black to-[var(--color-concrete)]/10 flex justify-center overflow-visible" style={{ marginTop: '120px' }}>
+      <section className="pt-32 pb-48 px-4 bg-gradient-to-b from-black to-[var(--color-concrete)]/10 flex justify-center overflow-visible" style={{ marginTop: '120px' }}>
         <div className="w-full max-w-7xl">
           <div className="text-center" style={{ marginBottom: '50px' }}>
             <GraffitiText
@@ -35,22 +35,24 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" style={{ marginBottom: '120px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" style={{ marginBottom: '60px' }}>
             {PRODUCTS.slice(0, 4).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
 
-          <div className="text-center pb-8 relative z-10">
+          <div className="text-center pb-24 relative z-10">
             <Button variant="gold" size="xl" asChild>
               <Link href="/collections">View All Collections</Link>
             </Button>
           </div>
+
+          <div style={{ height: '100px' }}></div>
         </div>
       </section>
 
       {/* Celebrity Wall Preview */}
-      <section className="py-32 px-4 relative overflow-hidden flex justify-center" style={{ marginTop: '30px' }}>
+      <section className="py-32 px-4 relative overflow-hidden flex justify-center bg-gradient-to-b from-[var(--color-concrete)]/10 to-black" style={{ marginTop: '0px' }}>
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-concrete)]/10 to-black" />
 
         <div className="w-full max-w-7xl relative z-10">
