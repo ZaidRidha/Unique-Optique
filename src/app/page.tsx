@@ -93,20 +93,21 @@ export default function Home() {
         <div className="w-full max-w-4xl text-center">
           <GraffitiText
             variant="gold"
-            className="text-4xl md:text-6xl mb-8"
+            className="text-4xl md:text-6xl"
+            style={{ marginBottom: '60px' }}
           >
             EXPERIENCE THE LEGEND
           </GraffitiText>
 
-          <p className="font-display text-2xl text-[var(--color-offwhite)] mb-4 italic">
+          <p className="font-display text-2xl text-[var(--color-offwhite)] italic" style={{ marginBottom: '40px' }}>
             Visit our Manhattan boutique
           </p>
 
-          <p className="font-grotesk text-xl text-[var(--color-concrete)] mb-8">
+          <p className="font-grotesk text-xl text-[var(--color-concrete)]" style={{ marginBottom: '60px' }}>
             3268 Broadway, Manhattan, NY
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row justify-center" style={{ gap: '24px' }}>
             <Button variant="gold" size="xl" asChild>
               <Link href="/visit">Get Directions</Link>
             </Button>
