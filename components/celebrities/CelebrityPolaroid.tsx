@@ -36,9 +36,13 @@ export const CelebrityPolaroid: React.FC<CelebrityPolaroidProps> = ({
       <div className="relative bg-[var(--color-offwhite)] p-4 pb-16 shadow-2xl">
         {/* Photo */}
         <div className="aspect-square bg-gradient-to-br from-[var(--color-concrete)]/20 to-[var(--color-concrete)]/5 relative overflow-hidden">
-          <div className="w-full h-full flex items-center justify-center">
-            <span className="text-[var(--color-concrete)]/40 font-display text-8xl">📸</span>
-          </div>
+          <Image
+            src={celebrity.image}
+            alt={celebrity.name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          />
 
           {/* Graffiti Tag Overlay */}
           <div className="absolute top-2 right-2 bg-[var(--color-neon-pink)] px-3 py-1 rotate-[-5deg] shadow-lg">
