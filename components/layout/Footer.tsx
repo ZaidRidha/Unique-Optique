@@ -8,29 +8,30 @@ import { BRAND_INFO, NAV_LINKS, SOCIAL_LINKS } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { GraffitiText } from "@/components/artistic/GraffitiText";
 import { BrushStroke } from "@/components/artistic/BrushStroke";
+import styles from "./Footer.module.css";
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-black border-t-2 border-[var(--color-gold)] mt-24 overflow-hidden">
+    <footer className={styles.footer}>
       {/* Decorative Brush Stroke */}
       <BrushStroke
-        className="absolute top-0 left-1/4 w-64 opacity-20"
+        className={styles.decorativeBrush}
         color="var(--color-neon-pink)"
       />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div className={styles.container}>
+        <div className={styles.grid}>
           {/* Brand Section */}
-          <div className="space-y-6">
-            <GraffitiText variant="gold" className="text-2xl">
+          <div className={styles.brandSection}>
+            <GraffitiText variant="gold" className={styles.brandTitle}>
               UNIQUE OPTIQUE
             </GraffitiText>
-            <p className="text-[var(--color-concrete)] font-grotesk text-sm leading-relaxed">
+            <p className={styles.brandText}>
               Manhattan's premier luxury eyewear destination. Where legends come to see clearly.
             </p>
-            <div className="flex space-x-4">
+            <div className={styles.socialIcons}>
               <SocialIcon href={SOCIAL_LINKS.instagram} icon={Instagram} />
               <SocialIcon href={SOCIAL_LINKS.facebook} icon={Facebook} />
               <SocialIcon href={SOCIAL_LINKS.twitter} icon={Twitter} />
@@ -39,15 +40,15 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-street text-[var(--color-gold)] uppercase text-sm mb-4">
+            <h3 className={styles.sectionTitle}>
               Navigate
             </h3>
-            <ul className="space-y-3">
+            <ul className={styles.linksList}>
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[var(--color-concrete)] hover:text-[var(--color-gold)] transition-colors font-grotesk text-sm"
+                    className={styles.footerLink}
                   >
                     {link.name}
                   </Link>
@@ -58,25 +59,25 @@ export const Footer: React.FC = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-street text-[var(--color-gold)] uppercase text-sm mb-4">
+            <h3 className={styles.sectionTitle}>
               Contact
             </h3>
-            <ul className="space-y-3">
+            <ul className={styles.linksList}>
               <li>
                 <a
                   href={`tel:${BRAND_INFO.phone}`}
-                  className="flex items-center space-x-2 text-[var(--color-concrete)] hover:text-[var(--color-gold)] transition-colors font-grotesk text-sm"
+                  className={styles.contactItem}
                 >
-                  <Phone className="w-4 h-4" />
+                  <Phone className={styles.contactIcon} />
                   <span>{BRAND_INFO.phone}</span>
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${BRAND_INFO.email}`}
-                  className="flex items-center space-x-2 text-[var(--color-concrete)] hover:text-[var(--color-gold)] transition-colors font-grotesk text-sm"
+                  className={styles.contactItem}
                 >
-                  <Mail className="w-4 h-4" />
+                  <Mail className={styles.contactIcon} />
                   <span>{BRAND_INFO.email}</span>
                 </a>
               </li>
@@ -85,9 +86,9 @@ export const Footer: React.FC = () => {
                   href={`https://maps.google.com/?q=${encodeURIComponent(BRAND_INFO.address)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start space-x-2 text-[var(--color-concrete)] hover:text-[var(--color-gold)] transition-colors font-grotesk text-sm"
+                  className={styles.contactItemStart}
                 >
-                  <MapPin className="w-4 h-4 mt-1" />
+                  <MapPin className={styles.contactIconMargin} />
                   <span>{BRAND_INFO.address}</span>
                 </a>
               </li>
@@ -96,19 +97,19 @@ export const Footer: React.FC = () => {
 
           {/* Newsletter */}
           <div>
-            <h3 className="font-street text-[var(--color-gold)] uppercase text-sm mb-4">
+            <h3 className={styles.sectionTitle}>
               VIP List
             </h3>
-            <p className="text-[var(--color-concrete)] font-grotesk text-sm mb-4">
+            <p className={styles.newsletterText}>
               Join for exclusive drops and celebrity sightings
             </p>
-            <form className="space-y-3">
+            <form className={styles.newsletterForm}>
               <input
                 type="email"
                 placeholder="Your email"
-                className="w-full px-4 py-2 bg-[var(--color-concrete)]/10 border border-[var(--color-gold)]/30 rounded text-foreground placeholder:text-[var(--color-concrete)] focus:outline-none focus:border-[var(--color-gold)] transition-colors"
+                className={styles.emailInput}
               />
-              <Button variant="spray" size="sm" className="w-full">
+              <Button variant="spray" size="sm" className={styles.fullWidth}>
                 Subscribe
               </Button>
             </form>
@@ -116,12 +117,12 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Store Hours */}
-        <div className="border-t border-[var(--color-gold)]/20 pt-8 mb-8">
-          <div className="text-center md:text-left">
-            <h4 className="font-street text-[var(--color-electric-blue)] uppercase text-sm mb-3">
+        <div className={styles.storeHours}>
+          <div className={styles.storeHoursContent}>
+            <h4 className={styles.storeHoursTitle}>
               Store Hours
             </h4>
-            <div className="flex flex-col md:flex-row md:space-x-8 space-y-2 md:space-y-0 text-sm font-grotesk text-[var(--color-concrete)]">
+            <div className={styles.hoursGrid}>
               <p>Mon-Fri: {BRAND_INFO.hours.weekday}</p>
               <p>Saturday: {BRAND_INFO.hours.saturday}</p>
               <p>Sunday: {BRAND_INFO.hours.sunday}</p>
@@ -130,18 +131,18 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[var(--color-gold)]/20 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-[var(--color-concrete)] font-grotesk text-sm">
+        <div className={styles.bottomBar}>
+          <p className={styles.copyrightText}>
             © {currentYear} {BRAND_INFO.name}. All rights reserved.
           </p>
-          <p className="font-marker text-[var(--color-gold)] text-sm rotate-[-1deg]">
+          <p className={styles.tagline}>
             Where Legends See Clearly ✨
           </p>
         </div>
       </div>
 
       {/* Decorative spray paint splatter */}
-      <div className="absolute bottom-0 right-0 w-64 h-64 opacity-5 pointer-events-none">
+      <div className={styles.decorativeSplatter}>
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <circle cx="100" cy="100" r="80" fill="var(--color-neon-pink)" />
           <circle cx="140" cy="120" r="40" fill="var(--color-electric-blue)" />
@@ -161,12 +162,12 @@ const SocialIcon: React.FC<{
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-10 h-10 flex items-center justify-center border-2 border-[var(--color-gold)]/30 rounded-full text-[var(--color-gold)] hover:bg-[var(--color-gold)] hover:text-black transition-all"
+      className={styles.socialIcon}
       whileHover={{ scale: 1.1, rotate: 360 }}
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.3 }}
     >
-      <Icon className="w-5 h-5" />
+      <Icon style={{ width: '1.25rem', height: '1.25rem' }} />
     </motion.a>
   );
 };
