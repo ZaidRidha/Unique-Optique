@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Celebrity } from "@/lib/constants";
 import { CelebrityPolaroid } from "./CelebrityPolaroid";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -13,14 +13,39 @@ export const CelebrityCarousel: React.FC<CelebrityCarouselProps> = ({
   celebrities,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
+  // Create an extended array with duplicates for infinite loop effect
+  const extendedCelebrities = [
+    ...celebrities.slice(-3), // Last 3 at the start
+    ...celebrities,
+    ...celebrities.slice(0, 3), // First 3 at the end
+  ];
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % celebrities.length);
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + celebrities.length) % celebrities.length);
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
   };
+
+  // Handle infinite loop by resetting position when reaching clones
+  useEffect(() => {
+    if (currentIndex === celebrities.length) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(0);
+      }, 500);
+    } else if (currentIndex === -1) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(celebrities.length - 1);
+      }, 500);
+    }
+  }, [currentIndex, celebrities.length]);
 
   return (
     <div className="relative">
@@ -44,11 +69,13 @@ export const CelebrityCarousel: React.FC<CelebrityCarouselProps> = ({
       {/* Carousel Content */}
       <div className="overflow-hidden px-12">
         <div
-          className="flex gap-8 transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
+          className={`flex gap-8 ${isTransitioning ? 'transition-transform duration-500 ease-in-out' : ''}`}
+          style={{
+            transform: `translateX(calc(-${(currentIndex + 3) * (100 / 3)}% - ${(currentIndex + 3) * 2}rem))`,
+          }}
         >
-          {celebrities.map((celebrity, index) => (
-            <div key={celebrity.id} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
+          {extendedCelebrities.map((celebrity, index) => (
+            <div key={`${celebrity.id}-${index}`} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
               <CelebrityPolaroid
                 celebrity={celebrity}
                 index={index}
@@ -63,9 +90,12 @@ export const CelebrityCarousel: React.FC<CelebrityCarouselProps> = ({
         {celebrities.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => {
+              setIsTransitioning(true);
+              setCurrentIndex(index);
+            }}
             className={`w-3 h-3 rounded-full transition-all ${
-              index === currentIndex
+              index === currentIndex % celebrities.length
                 ? "bg-[var(--color-gold)] w-8"
                 : "bg-[var(--color-concrete)]/40"
             }`}
