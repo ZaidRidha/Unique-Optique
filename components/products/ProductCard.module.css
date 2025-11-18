@@ -1,0 +1,35 @@
+.productInfo {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tag {
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  font-family: var(--font-grotesk);
+  color: black;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 50px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.tag:hover {
+  border-color: var(--color-gold);
+  background-color: var(--color-gold);
+  color: black;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}

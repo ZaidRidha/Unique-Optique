@@ -9,6 +9,7 @@ import { cn, formatPrice } from "@/lib/utils";
 import { Product } from "@/lib/constants";
 import { Badge } from "@/components/ui/Badge";
 import { productCard } from "@/lib/animations";
+import styles from "./ProductCard.module.css";
 
 interface ProductCardProps {
   product: Product;
@@ -65,7 +66,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
         </div>
 
         {/* Product Info */}
-        <div className="mt-4 space-y-2 text-center">
+        <div className={styles.productInfo}>
           {/* Designer */}
           <p className="font-display text-[var(--color-gold)] text-sm">
             {product.designer}
@@ -92,12 +93,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
           </div>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-2 mt-3 justify-center">
+          <div className={styles.tagsContainer}>
             {product.tags.slice(0, 3).map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1.5 text-xs font-grotesk text-[var(--color-concrete)]/80 bg-[var(--color-concrete)]/10 border border-[var(--color-concrete)]/20 rounded-full hover:border-[var(--color-gold)]/40 hover:text-[var(--color-gold)] transition-colors duration-200"
-              >
+              <span key={tag} className={styles.tag}>
                 {tag}
               </span>
             ))}
