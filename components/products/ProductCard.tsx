@@ -23,10 +23,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
       whileInView="animate"
       whileHover="hover"
       viewport={{ once: true }}
-      className={cn("group relative", className)}
+      className={cn("group relative bg-gradient-to-br from-[var(--color-concrete)]/15 via-black to-[var(--color-concrete)]/10 p-6 pb-8 rounded-2xl border border-[var(--color-gold)]/20 hover:border-[var(--color-gold)]/50 transition-all duration-300", className)}
     >
       <Link href={`/collections/${product.id}`}>
-        <div className="relative overflow-hidden rounded-xl bg-[var(--color-concrete)]/5 border-2 border-[var(--color-concrete)]/20 group-hover:border-[var(--color-gold)]/60 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-[var(--color-gold)]/20">
+        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-[var(--color-concrete)]/20 via-[var(--color-gold)]/15 to-[var(--color-concrete)]/20 border-2 border-[var(--color-gold)]/30 group-hover:border-[var(--color-gold)]/60 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-[var(--color-gold)]/20">
           {/* Product Image */}
           <div className="aspect-square relative overflow-hidden">
             <Image
@@ -65,7 +65,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
         </div>
 
         {/* Product Info */}
-        <div className="mt-4 space-y-2">
+        <div className="mt-4 space-y-2 text-center">
           {/* Designer */}
           <p className="font-display text-[var(--color-gold)] text-sm">
             {product.designer}
@@ -77,7 +77,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
           </h3>
 
           {/* Price */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center gap-2">
             <div className="relative">
               <p className="font-street text-[var(--color-gold)] text-xl md:text-2xl font-semibold">
                 {formatPrice(product.price)}
@@ -92,7 +92,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
           </div>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-2 mt-3">
+          <div className="flex flex-wrap gap-2 mt-3 justify-center">
             {product.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
