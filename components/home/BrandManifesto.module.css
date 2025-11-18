@@ -58,8 +58,8 @@
 .carouselWrapper {
   position: relative;
   width: 100%;
-  max-width: 56rem;
   margin: 0 auto 3rem;
+  padding: 0 2rem;
 }
 
 .carouselContainer {
