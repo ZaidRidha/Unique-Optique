@@ -134,12 +134,13 @@ export const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Decorative spray paint splatter */}
+      {/* Decorative star */}
       <div className={styles.decorativeSplatter}>
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="100" cy="100" r="80" fill="var(--color-neon-pink)" />
-          <circle cx="140" cy="120" r="40" fill="var(--color-electric-blue)" />
-          <circle cx="80" cy="130" r="30" fill="var(--color-lime-green)" />
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M 50 10 L 55 35 L 80 35 L 60 50 L 67.5 75 L 50 60 L 32.5 75 L 40 50 L 20 35 L 45 35 Z"
+            fill="var(--color-gold)"
+          />
         </svg>
       </div>
     </footer>
