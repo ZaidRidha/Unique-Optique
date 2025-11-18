@@ -11,7 +11,7 @@ export const CelebrityTicker: React.FC = () => {
   const tickerItems = [...CELEBRITIES, ...CELEBRITIES, ...CELEBRITIES];
 
   return (
-    <div className="relative bg-[var(--color-neon-pink)] py-4 overflow-hidden border-y-4 border-[var(--color-gold)]">
+    <div className="relative bg-[var(--color-gold)] py-4 overflow-hidden border-y-4 border-black">
       {/* Ticker Content */}
       <Link href="/celebrities" className="block">
         <motion.div
@@ -45,13 +45,13 @@ export const CelebrityTicker: React.FC = () => {
       </Link>
 
       {/* Spray Paint Texture Overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
+      <div className="absolute inset-0 pointer-events-none opacity-10">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="10%" cy="50%" r="3" fill="black" />
-          <circle cx="30%" cy="60%" r="2" fill="black" />
-          <circle cx="50%" cy="40%" r="2.5" fill="black" />
-          <circle cx="70%" cy="55%" r="2" fill="black" />
-          <circle cx="90%" cy="45%" r="3" fill="black" />
+          <circle cx="10%" cy="50%" r="3" fill="white" />
+          <circle cx="30%" cy="60%" r="2" fill="white" />
+          <circle cx="50%" cy="40%" r="2.5" fill="white" />
+          <circle cx="70%" cy="55%" r="2" fill="white" />
+          <circle cx="90%" cy="45%" r="3" fill="white" />
         </svg>
       </div>
     </div>
