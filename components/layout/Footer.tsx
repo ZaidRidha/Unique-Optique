@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { BRAND_INFO, NAV_LINKS, SOCIAL_LINKS } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { GraffitiText } from "@/components/artistic/GraffitiText";
-import { BrushStroke } from "@/components/artistic/BrushStroke";
 import styles from "./Footer.module.css";
 
 export const Footer: React.FC = () => {
@@ -15,19 +14,13 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className={styles.footer}>
-      {/* Decorative Brush Stroke */}
-      <BrushStroke
-        className={styles.decorativeBrush}
-        color="var(--color-neon-pink)"
-      />
-
       <div className={styles.container}>
         <div className={styles.grid}>
           {/* Brand Section */}
           <div className={styles.brandSection}>
-            <GraffitiText variant="gold" className={styles.brandTitle}>
+            <h2 className={styles.brandTitle}>
               UNIQUE OPTIQUE
-            </GraffitiText>
+            </h2>
             <p className={styles.brandText}>
               Manhattan's premier luxury eyewear destination. Where legends come to see clearly.
             </p>

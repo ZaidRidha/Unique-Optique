@@ -1,0 +1,58 @@
+.visitCta {
+  position: relative;
+  padding: 100px 1rem;
+  background: linear-gradient(to right, black, rgba(212, 175, 55, 0.1), black);
+  border-top: 2px solid var(--color-gold);
+  border-bottom: 2px solid var(--color-gold);
+  margin-top: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.visitCtaContainer {
+  width: 100%;
+  max-width: 64rem;
+  text-align: center;
+}
+
+.visitCtaTitle {
+  margin-bottom: 60px;
+}
+
+.visitCtaSubtitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-offwhite);
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+.visitCtaAddress {
+  font-family: var(--font-grotesk);
+  font-size: 1.25rem;
+  color: var(--color-concrete);
+  margin-bottom: 60px;
+}
+
+.visitCtaButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .visitCtaButtons {
+    flex-direction: row;
+  }
+
+  .visitCtaSubtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .visitCtaSubtitle {
+    font-size: 1.875rem;
+  }
+}

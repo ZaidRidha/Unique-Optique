@@ -265,7 +265,12 @@
 }
 
 .brandTitle {
+  font-family: var(--font-street);
   font-size: 1.5rem;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
 }
 
 .fullWidth {

@@ -7,6 +7,7 @@ import { GraffitiText } from "@/components/artistic/GraffitiText";
 import { Button } from "@/components/ui/Button";
 import { PRODUCTS, CELEBRITIES, COLLECTIONS } from "@/lib/constants";
 import Link from "next/link";
+import styles from "./home.module.css";
 
 export default function Home() {
   return (
@@ -89,25 +90,24 @@ export default function Home() {
       </section>
 
       {/* Visit Us CTA */}
-      <section className="py-32 px-4 bg-gradient-to-r from-black via-[var(--color-gold)]/10 to-black border-y-2 border-[var(--color-gold)] flex justify-center" style={{ marginTop: '120px' }}>
-        <div className="w-full max-w-4xl text-center">
+      <section className={styles.visitCta}>
+        <div className={styles.visitCtaContainer}>
           <GraffitiText
             variant="gold"
-            className="text-4xl md:text-6xl"
-            style={{ marginBottom: '60px' }}
+            className={`text-4xl md:text-6xl ${styles.visitCtaTitle}`}
           >
             EXPERIENCE THE LEGEND
           </GraffitiText>
 
-          <p className="font-display text-2xl text-[var(--color-offwhite)] italic" style={{ marginBottom: '40px' }}>
+          <p className={styles.visitCtaSubtitle}>
             Visit our Manhattan boutique
           </p>
 
-          <p className="font-grotesk text-xl text-[var(--color-concrete)]" style={{ marginBottom: '60px' }}>
+          <p className={styles.visitCtaAddress}>
             3268 Broadway, Manhattan, NY
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center" style={{ gap: '24px' }}>
+          <div className={styles.visitCtaButtons}>
             <Button variant="gold" size="xl" asChild>
               <Link href="/visit">Get Directions</Link>
             </Button>
