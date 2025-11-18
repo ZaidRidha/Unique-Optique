@@ -92,8 +92,9 @@
   font-family: var(--font-street);
   color: var(--color-gold);
   text-transform: uppercase;
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .linksList {
@@ -202,10 +203,11 @@
 
 .storeHoursTitle {
   font-family: var(--font-street);
-  color: var(--color-electric-blue);
+  color: var(--color-gold);
   text-transform: uppercase;
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   margin-bottom: 0.75rem;
+  font-weight: 700;
 }
 
 .hoursGrid {
@@ -266,7 +268,7 @@
 
 .brandTitle {
   font-family: var(--font-street);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: var(--color-gold);
   text-transform: uppercase;
   letter-spacing: 0.1em;
