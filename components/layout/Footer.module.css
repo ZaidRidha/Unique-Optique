@@ -1,7 +1,6 @@
 .footer {
   position: relative;
   background-color: black;
-  border-top: 2px solid var(--color-gold);
   margin-top: 6rem;
   overflow: hidden;
 }
