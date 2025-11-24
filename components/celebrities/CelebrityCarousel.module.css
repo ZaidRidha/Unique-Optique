@@ -1,0 +1,84 @@
+.carouselWrapper {
+  position: relative;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  background-color: var(--color-gold);
+  color: black;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.navButton:hover {
+  background-color: rgba(212, 175, 55, 0.8);
+}
+
+.navButtonPrev {
+  left: 0;
+  transform: translate(-1rem, -50%);
+}
+
+.navButtonNext {
+  right: 0;
+  transform: translate(1rem, -50%);
+}
+
+.carouselContent {
+  overflow: hidden;
+  padding: 5rem 6rem;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 2rem;
+}
+
+.carouselTrackTransition {
+  transition: transform 500ms ease-in-out;
+}
+
+.carouselSlide {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .carouselSlide {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carouselSlide {
+    width: 33.333333%;
+  }
+}
+
+.dotsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(168, 168, 168, 0.4);
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.dotActive {
+  background-color: var(--color-gold);
+  width: 2rem;
+}

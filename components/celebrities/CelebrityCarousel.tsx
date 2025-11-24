@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Celebrity } from "@/lib/constants";
 import { CelebrityPolaroid } from "./CelebrityPolaroid";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import styles from "./CelebrityCarousel.module.css";
 
 interface CelebrityCarouselProps {
   celebrities: Celebrity[];
@@ -48,11 +49,11 @@ export const CelebrityCarousel: React.FC<CelebrityCarouselProps> = ({
   }, [currentIndex, celebrities.length]);
 
   return (
-    <div className="relative">
+    <div className={styles.carouselWrapper}>
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-[var(--color-gold)] hover:bg-[var(--color-gold)]/80 text-black p-3 rounded-full shadow-lg transition-all"
+        className={`${styles.navButton} ${styles.navButtonPrev}`}
         aria-label="Previous"
       >
         <ChevronLeft size={24} />
@@ -60,22 +61,22 @@ export const CelebrityCarousel: React.FC<CelebrityCarouselProps> = ({
 
       <button
         onClick={nextSlide}
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-[var(--color-gold)] hover:bg-[var(--color-gold)]/80 text-black p-3 rounded-full shadow-lg transition-all"
+        className={`${styles.navButton} ${styles.navButtonNext}`}
         aria-label="Next"
       >
         <ChevronRight size={24} />
       </button>
 
       {/* Carousel Content */}
-      <div className="overflow-hidden px-12">
+      <div className={styles.carouselContent}>
         <div
-          className={`flex gap-8 ${isTransitioning ? 'transition-transform duration-500 ease-in-out' : ''}`}
+          className={`${styles.carouselTrack} ${isTransitioning ? styles.carouselTrackTransition : ''}`}
           style={{
             transform: `translateX(calc(-${(currentIndex + 3) * (100 / 3)}% - ${(currentIndex + 3) * 2}rem))`,
           }}
         >
           {extendedCelebrities.map((celebrity, index) => (
-            <div key={`${celebrity.id}-${index}`} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
+            <div key={`${celebrity.id}-${index}`} className={styles.carouselSlide}>
               <CelebrityPolaroid
                 celebrity={celebrity}
                 index={index}
@@ -86,7 +87,7 @@ export const CelebrityCarousel: React.FC<CelebrityCarouselProps> = ({
       </div>
 
       {/* Dots Indicator */}
-      <div className="flex justify-center gap-2 mt-8">
+      <div className={styles.dotsContainer}>
         {celebrities.map((_, index) => (
           <button
             key={index}
@@ -94,10 +95,8 @@ export const CelebrityCarousel: React.FC<CelebrityCarouselProps> = ({
               setIsTransitioning(true);
               setCurrentIndex(index);
             }}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === currentIndex % celebrities.length
-                ? "bg-[var(--color-gold)] w-8"
-                : "bg-[var(--color-concrete)]/40"
+            className={`${styles.dot} ${
+              index === currentIndex % celebrities.length ? styles.dotActive : ''
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
