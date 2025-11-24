@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { PRODUCTS, CELEBRITIES, COLLECTIONS } from "@/lib/constants";
 import Link from "next/link";
 import styles from "./home.module.css";
+import wallOfFameStyles from "./WallOfFame.module.css";
 
 export default function Home() {
   return (
@@ -53,25 +54,25 @@ export default function Home() {
       </section>
 
       {/* Celebrity Wall Preview */}
-      <section className="py-32 px-4 relative overflow-hidden flex justify-center bg-gradient-to-b from-[var(--color-concrete)]/10 to-black" style={{ marginTop: '0px' }}>
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-concrete)]/10 to-black" />
+      <section className={wallOfFameStyles.wallOfFameSection}>
+        <div className={wallOfFameStyles.backgroundOverlay} />
 
-        <div className="w-full max-w-7xl relative z-10">
-          <div className="text-center" style={{ marginBottom: '80px' }}>
+        <div className={wallOfFameStyles.container}>
+          <div className={wallOfFameStyles.header}>
             <GraffitiText
               variant="neon-pink"
-              className="text-4xl md:text-6xl mb-4"
+              className={wallOfFameStyles.title}
             >
               WALL OF FAME
             </GraffitiText>
-            <p className="font-marker text-[var(--color-gold)] text-2xl rotate-[-1deg]">
+            <p className={wallOfFameStyles.subtitle}>
               Spotted at unique optique ✨
             </p>
           </div>
 
           <CelebrityCarousel celebrities={CELEBRITIES} />
 
-          <div className="text-center" style={{ marginTop: '100px' }}>
+          <div className={wallOfFameStyles.buttonContainer}>
             <Button variant="spray" size="lg" asChild>
               <Link href="/celebrities">See All Celebrities</Link>
             </Button>
@@ -79,7 +80,7 @@ export default function Home() {
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute top-10 left-10 opacity-10 pointer-events-none">
+        <div className={wallOfFameStyles.decorativeElement}>
           <svg width="150" height="150" viewBox="0 0 100 100">
             <path
               d="M 50 10 L 55 35 L 80 35 L 60 50 L 67.5 75 L 50 60 L 32.5 75 L 40 50 L 20 35 L 45 35 Z"
