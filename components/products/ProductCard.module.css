@@ -10,11 +10,21 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (min-width: 768px) {
   .card {
     border-radius: 16px;
+  }
+}
+
+@media (hover: hover) {
+  .card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(212, 175, 55, 0.15);
   }
 }
 
@@ -42,6 +52,13 @@
 
 .image {
   object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) {
+  .card:hover .image {
+    transform: scale(1.05);
+  }
 }
 
 /* Badge */
@@ -120,6 +137,13 @@
   color: var(--color-offwhite);
   margin: 0;
   line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+@media (hover: hover) {
+  .card:hover .productName {
+    color: var(--color-gold);
+  }
 }
 
 /* Price Section */
