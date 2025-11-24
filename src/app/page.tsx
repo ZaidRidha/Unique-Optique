@@ -1,3 +1,5 @@
+"use client";
+
 import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { CelebrityTicker } from "@/components/home/CelebrityTicker";
 import { BrandManifesto } from "@/components/home/BrandManifesto";
@@ -7,6 +9,7 @@ import { GraffitiText } from "@/components/artistic/GraffitiText";
 import { Button } from "@/components/ui/Button";
 import { PRODUCTS, CELEBRITIES, COLLECTIONS } from "@/lib/constants";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import styles from "./home.module.css";
 import wallOfFameStyles from "./WallOfFame.module.css";
 
@@ -73,9 +76,36 @@ export default function Home() {
           <CelebrityCarousel celebrities={CELEBRITIES} />
 
           <div className={wallOfFameStyles.buttonContainer}>
-            <Button variant="spray" size="lg" asChild>
-              <Link href="/celebrities">See All Celebrities</Link>
-            </Button>
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: '0 0 30px rgba(212, 175, 55, 0.8), 0 8px 30px rgba(0, 0, 0, 0.6)',
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+              viewport={{ once: true }}
+              onClick={() => window.location.href = '/celebrities'}
+              style={{
+                fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
+                color: 'black',
+                background: 'linear-gradient(135deg, var(--color-gold), #DAA520)',
+                fontFamily: 'Bebas Neue, sans-serif',
+                fontWeight: '700',
+                letterSpacing: '0.15em',
+                padding: '16px 48px',
+                borderRadius: '50px',
+                border: '3px solid rgba(0, 0, 0, 0.6)',
+                cursor: 'pointer',
+                boxShadow: '0 6px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+              }}
+            >
+              See All Celebrities
+            </motion.button>
           </div>
         </div>
 
