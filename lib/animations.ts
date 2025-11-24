@@ -198,10 +198,6 @@ export const productCard: Variants = {
     y: 0,
     transition: { duration: 0.5, ease: "easeOut" },
   },
-  hover: {
-    y: -10,
-    transition: { duration: 0.3 },
-  },
 };
 
 // Glitch Effect

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -17,50 +17,54 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div
       variants={productCard}
       initial="initial"
       whileInView="animate"
-      whileHover="hover"
       viewport={{ once: true }}
-      className={cn("group relative bg-gradient-to-br from-[var(--color-concrete)]/15 via-black to-[var(--color-concrete)]/10 p-6 pb-8 rounded-2xl border border-[var(--color-gold)]/20 hover:border-[var(--color-gold)]/50 transition-all duration-300", className)}
+      className={cn(styles.card, className)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <Link href={`/collections/${product.id}`}>
-        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-[var(--color-concrete)]/20 via-[var(--color-gold)]/15 to-[var(--color-concrete)]/20 border-2 border-[var(--color-gold)]/30 group-hover:border-[var(--color-gold)]/60 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-[var(--color-gold)]/20">
+        <div className={styles.imageContainer}>
           {/* Product Image */}
-          <div className="aspect-square relative overflow-hidden">
+          <div className={styles.imageWrapper}>
             <Image
-              src="/images/placeholders/GlassesPlaceHolder.png"
+              key={isHovered ? "hover" : "default"}
+              src={isHovered ? "/images/placeholders/GlassesPlaceHolder2.png" : "/images/placeholders/GlassesPlaceHolder.png"}
               alt={product.name}
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              className={styles.image}
+              priority={false}
+              unoptimized
             />
           </div>
 
           {/* Celebrity Favorite Badge */}
           {product.celebrityFavorite && (
-            <div className="absolute top-3 right-3">
-              <Badge variant="sticker" className="shadow-lg">
-                <Star className="w-3 h-3 mr-1 fill-current" />
-                Celebrity Fave
-              </Badge>
+            <div className={styles.badge}>
+              <Star className="w-3 h-3 fill-current" />
+              <span>Celebrity Favorite</span>
             </div>
           )}
 
           {/* Quick Add Button */}
           <motion.div
-            className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-all duration-300"
+            className={styles.quickAddWrapper}
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0 }}
           >
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full py-3 px-4 bg-gradient-to-r from-[var(--color-gold)] to-[var(--color-gold-light)] text-black font-grotesk font-bold text-sm md:text-base rounded-lg flex items-center justify-center gap-2 hover:shadow-2xl hover:shadow-[var(--color-gold)]/50 transition-all duration-200 backdrop-blur-md"
+              className={styles.quickAddButton}
             >
-              <ShoppingCart className="w-4 h-4 md:w-5 md:h-5" />
-              <span>Quick Add</span>
+              <ShoppingCart className="w-5 h-5" />
+              <span>Add to Cart</span>
             </motion.button>
           </motion.div>
         </div>
@@ -68,38 +72,38 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
         {/* Product Info */}
         <div className={styles.productInfo}>
           {/* Designer */}
-          <p className="font-display text-[var(--color-gold)] text-sm">
+          <p className={styles.designer}>
             {product.designer}
           </p>
 
           {/* Product Name */}
-          <h3 className="font-grotesk text-foreground text-lg font-medium group-hover:text-[var(--color-gold)] transition-colors">
+          <h3 className={styles.productName}>
             {product.name}
           </h3>
 
           {/* Price */}
-          <div className="flex items-center justify-center gap-2">
-            <div className="relative">
-              <p className="font-street text-[var(--color-gold)] text-xl md:text-2xl font-semibold">
-                {formatPrice(product.price)}
-              </p>
-            </div>
+          <div className={styles.priceContainer}>
+            <p className={styles.price}>
+              {formatPrice(product.price)}
+            </p>
 
             {product.celebrity && (
-              <Badge variant="celebrity" className="text-xs">
+              <span className={styles.celebrityTag}>
                 {product.celebrity}
-              </Badge>
+              </span>
             )}
           </div>
 
           {/* Tags */}
-          <div className={styles.tagsContainer}>
-            {product.tags.slice(0, 3).map((tag) => (
-              <span key={tag} className={styles.tag}>
-                {tag}
-              </span>
-            ))}
-          </div>
+          {product.tags && product.tags.length > 0 && (
+            <div className={styles.tagsContainer}>
+              {product.tags.slice(0, 2).map((tag) => (
+                <span key={tag} className={styles.tag}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </Link>
     </motion.div>
