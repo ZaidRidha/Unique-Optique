@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HandwrittenNote } from "@/components/artistic/HandwrittenNote";
+import { GraffitiText } from "@/components/artistic/GraffitiText";
 import { fadeInUp } from "@/lib/animations";
 import Image from "next/image";
 import styles from "./BrandManifesto.module.css";
@@ -53,9 +54,12 @@ export const BrandManifesto: React.FC = () => {
           transition={{ duration: 0.6 }}
           className={styles.titleContainer}
         >
-          <h2 className={styles.title}>
+          <GraffitiText
+            variant="gold"
+            className="text-4xl md:text-6xl mb-4"
+          >
             OUR LOCATIONS
-          </h2>
+          </GraffitiText>
           <p className={styles.subtitle}>
             Three iconic cities. One legendary vision.
           </p>
