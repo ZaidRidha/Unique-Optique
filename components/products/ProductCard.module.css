@@ -6,6 +6,26 @@
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+  .card {
+    max-width: 450px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    max-width: 380px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card {
+    max-width: 100%;
+  }
 }
 
 /* Image Section */
@@ -78,15 +98,22 @@
 
 /* Product Info */
 .productInfo {
-  padding: 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
+}
+
+@media (min-width: 768px) {
+  .productInfo {
+    padding: 20px;
+    gap: 8px;
+  }
 }
 
 .designer {
   font-family: var(--font-grotesk);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--color-gold);
   text-transform: uppercase;
@@ -94,13 +121,25 @@
   margin: 0;
 }
 
+@media (min-width: 768px) {
+  .designer {
+    font-size: 0.875rem;
+  }
+}
+
 .productName {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 500;
   color: var(--color-offwhite);
   margin: 0;
   line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .productName {
+    font-size: 1.25rem;
+  }
 }
 
 /* Price Section */
@@ -113,10 +152,16 @@
 
 .price {
   font-family: var(--font-grotesk);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-offwhite);
   margin: 0;
+}
+
+@media (min-width: 768px) {
+  .price {
+    font-size: 1.5rem;
+  }
 }
 
 .celebrityTag {

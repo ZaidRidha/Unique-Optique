@@ -44,13 +44,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
             />
           </div>
 
-          {/* Celebrity Favorite Badge */}
-          {product.celebrityFavorite && (
-            <div className={styles.badge}>
-              <Star className="w-3 h-3 fill-current" />
-              <span>Celebrity Favorite</span>
-            </div>
-          )}
 
           {/* Quick Add Button */}
           <motion.div
@@ -86,12 +79,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
             <p className={styles.price}>
               {formatPrice(product.price)}
             </p>
-
-            {product.celebrity && (
-              <span className={styles.celebrityTag}>
-                {product.celebrity}
-              </span>
-            )}
           </div>
 
           {/* Tags */}
