@@ -144,19 +144,21 @@ export const BrandManifesto: React.FC = () => {
           </div>
         </div>
 
-        {/* Quote Section */}
-        <motion.div
-          variants={fadeInUp}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className={styles.quoteSection}
-        >
-          <HandwrittenNote author="The unique optique Team" className={styles.handwrittenNote}>
-            We don't just sell glasses. We craft legendary vision. SHITTIN ME 🔥
-          </HandwrittenNote>
-        </motion.div>
       </div>
+
+      {/* Taped Side Note */}
+      <motion.div
+        initial={{ opacity: 0, rotate: -5 }}
+        whileInView={{ opacity: 1, rotate: -3 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+        className={styles.tapedNote}
+      >
+        <div className={styles.tape} />
+        <HandwrittenNote author="The unique optique Team" className={styles.sideNote}>
+          We don't just sell glasses. We craft legendary vision.
+        </HandwrittenNote>
+      </motion.div>
     </section>
   );
 };

@@ -1,7 +1,7 @@
 .section {
   position: relative;
-  padding: 4rem 0 3rem 0;
-  overflow: hidden;
+  padding: 4rem 0 8rem 0;
+  overflow: visible;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -201,48 +201,82 @@
   width: 2rem;
 }
 
-.quoteSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 8rem;
+/* Taped Side Note */
+.tapedNote {
+  position: absolute;
+  bottom: -4.5rem;
+  left: 1rem;
+  z-index: 20;
+  transform: rotate(-3deg);
+  max-width: 220px;
 }
 
 @media (min-width: 768px) {
-  .quoteSection {
-    flex-direction: row;
+  .tapedNote {
+    left: 3rem;
+    bottom: -3.5rem;
+    max-width: 280px;
   }
 }
 
-.handwrittenNote {
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+@media (min-width: 1024px) {
+  .tapedNote {
+    left: 5rem;
+    bottom: -3.5rem;
+    max-width: 300px;
+  }
 }
 
-.handwrittenNote > div > div {
-  padding: 1rem !important;
+/* Tape effect */
+.tape {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 30px;
+  background: rgba(255, 248, 220, 0.4);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  z-index: 21;
+  backdrop-filter: blur(2px);
 }
 
-.handwrittenNote :global(.font-marker) {
-  font-size: 1.25rem !important;
+.sideNote {
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.sideNote:hover {
+  transform: scale(1.02) rotate(1deg);
+}
+
+.sideNote > div > div {
+  padding: 0.75rem !important;
+}
+
+.sideNote :global(.font-marker) {
+  font-size: 1rem !important;
   line-height: 1.3;
 }
 
-.handwrittenNote :global(.text-sm) {
-  font-size: 1rem !important;
+.sideNote :global(.text-sm) {
+  font-size: 0.875rem !important;
 }
 
 @media (min-width: 768px) {
-  .handwrittenNote > div > div {
-    padding: 1.25rem !important;
+  .sideNote > div > div {
+    padding: 1rem !important;
   }
 
-  .handwrittenNote :global(.font-marker) {
-    font-size: 1.5rem !important;
+  .sideNote :global(.font-marker) {
+    font-size: 1.25rem !important;
   }
 
-  .handwrittenNote :global(.text-sm) {
-    font-size: 1.125rem !important;
+  .sideNote :global(.text-sm) {
+    font-size: 1rem !important;
   }
 }
