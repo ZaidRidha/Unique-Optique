@@ -26,8 +26,8 @@ export default function Home() {
       <BrandManifesto />
 
       {/* Featured Collections */}
-      <section className="pt-32 pb-48 px-4 bg-gradient-to-b from-black to-[var(--color-concrete)]/10 flex justify-center overflow-visible" style={{ marginTop: '120px' }}>
-        <div className="w-full max-w-7xl">
+      <section className="pt-32 pb-48 px-4 md:px-6 lg:px-8 bg-gradient-to-b from-black to-[var(--color-concrete)]/10 flex justify-center overflow-visible" style={{ marginTop: '120px' }}>
+        <div className="w-full mx-auto" style={{ maxWidth: '1600px' }}>
           <div className="text-center" style={{ marginBottom: '50px' }}>
             <GraffitiText
               variant="electric-blue"
@@ -40,9 +40,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" style={{ marginBottom: '60px' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ gap: '2rem', justifyItems: 'center', marginBottom: '60px' }}>
             {PRODUCTS.slice(0, 4).map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <div key={product.id} style={{ width: '100%', maxWidth: '350px' }}>
+                <ProductCard product={product} />
+              </div>
             ))}
           </div>
 
